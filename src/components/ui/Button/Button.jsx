@@ -10,6 +10,8 @@ const Button = forwardRef(
 			outlined,
 			rounded,
 			icon,
+			fullW,
+			centered,
 			className,
 			children,
 			...rest
@@ -22,8 +24,8 @@ const Button = forwardRef(
 				className={`button${variant ? ` button--${variant}` : ""}${
 					outlined ? " button--outlined" : ""
 				}${rounded ? " button--rounded" : ""}${icon ? " button--icon" : ""}${
-					className ? ` ${className}` : ""
-				}`}
+					fullW ? " button--full" : ""
+				}${centered ? " button--centered" : ""}${className ? ` ${className}` : ""}`}
 				ref={ref}
 				{...rest}
 			>
@@ -41,6 +43,8 @@ Button.propTypes = {
 	outlined: PropTypes.bool,
 	rounded: PropTypes.bool,
 	icon: PropTypes.bool,
+	fullW: PropTypes.bool,
+	centered: PropTypes.bool,
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };

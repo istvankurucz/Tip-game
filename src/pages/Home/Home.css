@@ -1,0 +1,167 @@
+/* General styles */
+.home__section {
+	padding: 3rem 1rem;
+}
+
+.home__title {
+	font-size: var(--fs-title);
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.home__subtitle {
+	margin-bottom: 2rem;
+}
+
+.home__brand {
+	color: var(--accent-color);
+}
+
+.home__p {
+	margin-bottom: 1rem;
+}
+
+.home__link {
+	color: var(--accent-color);
+}
+
+.home__highlight {
+	font-weight: 500;
+	color: var(--accent-color);
+}
+
+.home__list {
+	list-style: none;
+	margin-left: 2rem;
+}
+
+.home__list__item {
+	margin-bottom: 0.5rem;
+}
+
+/* Intro section */
+.home__section--intro {
+	height: calc(100svh - 3rem);
+	display: grid;
+	place-items: center;
+	background: linear-gradient(
+		to bottom right,
+		hsl(var(--accent-color-values) / 0.3),
+		var(--primary-color),
+		hsl(var(--accent-color-values) / 0.3)
+	);
+	position: relative;
+}
+
+.home__section--intro .home__p {
+	text-align: center;
+}
+
+.home__intro__football {
+	font-size: 10rem;
+	color: var(--accent-color);
+	opacity: 0.08;
+	position: absolute;
+}
+.home__intro__football--1 {
+	top: 10%;
+	right: 15%;
+}
+.home__intro__football--2 {
+	top: 35%;
+	left: 15%;
+	rotate: 27deg;
+}
+.home__intro__football--3 {
+	bottom: 10%;
+	right: 30%;
+	rotate: -17deg;
+}
+
+/* Workflow section */
+.home__section--workflow {
+	background: var(--secondary-color);
+	overflow: hidden;
+	position: relative;
+}
+
+.home__list--features {
+	margin-top: -0.5rem;
+}
+
+.home__list__item::before {
+	content: attr(data-list-number);
+	width: 2rem;
+	display: inline-block;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--accent-color);
+}
+
+.home__workflow__graphics {
+	position: absolute;
+	top: 50%;
+	right: 20%;
+}
+.home__workflow__graphics::after {
+	content: "";
+	width: 20rem;
+	height: 20rem;
+	background: var(--primary-color);
+	border-radius: var(--br-pill);
+	opacity: 0.3;
+	position: absolute;
+	top: -65%;
+	left: -25%;
+}
+
+.home__workflow__graphics__icon {
+	font-size: 6rem;
+	color: var(--accent-color);
+	padding: 1rem;
+	opacity: 0.3;
+}
+.home__workflow__graphics__icon--football {
+	position: absolute;
+	top: -50%;
+	left: 70%;
+}
+.home__workflow__graphics__icon--share {
+	position: absolute;
+	left: 50%;
+	bottom: -60%;
+}
+
+/* Usage section */
+.home__section--usage {
+	position: relative;
+}
+
+.home__usage__graphics {
+	position: absolute;
+	top: 50%;
+	right: 10%;
+	isolation: isolate;
+}
+
+.home__usage__graphics__icon {
+	width: 6rem;
+	height: 6rem;
+	font-size: 5rem;
+	background-color: var(--secondary-color);
+	border-radius: var(--br-pill);
+	padding: 3rem;
+}
+
+.home__usage__graphics__icon--users {
+	position: absolute;
+	top: -67%;
+	left: -37%;
+	z-index: -1;
+}
+.home__usage__graphics__icon--write {
+	position: absolute;
+	top: 0;
+	left: -75%;
+	z-index: -1;
+}

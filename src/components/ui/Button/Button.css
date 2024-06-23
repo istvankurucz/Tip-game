@@ -67,3 +67,13 @@
 	height: 2.4rem;
 	padding: 0.7rem;
 }
+
+.button--full {
+	width: 100%;
+	justify-content: center;
+}
+
+.button--centered {
+	display: flex;
+	margin-inline: auto;
+}
