@@ -1,0 +1,9 @@
+.container {
+	--maxWidth: 1200px;
+
+	width: min(var(--maxWidth), 100%);
+}
+
+.container--centered {
+	margin-inline: auto;
+}

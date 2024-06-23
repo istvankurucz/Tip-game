@@ -1,0 +1,9 @@
+.footer {
+	color: var(--primary-color);
+	background: var(--text-color);
+	padding: 2rem 1rem;
+}
+
+.footer__copyright {
+	text-align: center;
+}

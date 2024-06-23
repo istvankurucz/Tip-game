@@ -1,0 +1,6 @@
+.modal {
+	width: min(400px, 90%);
+	background: var(--primary-color);
+	border-radius: var(--br);
+	padding-block: 1rem;
+}

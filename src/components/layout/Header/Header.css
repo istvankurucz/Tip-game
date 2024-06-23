@@ -1,0 +1,151 @@
+.header {
+	background: var(--primary-color);
+	box-shadow: 0 0 0.3rem 1px var(--secondary-color);
+	padding: 0.5rem 1rem;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.header__container {
+	display: flex;
+	align-items: center;
+}
+
+.header__logo {
+	display: flex;
+	align-items: center;
+}
+
+.header__logo__img {
+	aspect-ratio: 852 / 245;
+	height: 2rem;
+}
+
+.header__nav {
+	margin-left: auto;
+}
+
+.header__menu {
+	align-self: stretch;
+	display: flex;
+	gap: 1.5rem;
+	list-style: none;
+	background: var(--primary-color);
+}
+
+.header__menu__item {
+	align-self: stretch;
+}
+.header__menu__item--more {
+	position: relative;
+}
+
+.header__menu__item a {
+	font-size: var(--fs-small);
+	font-weight: 500;
+	text-decoration: none;
+	color: inherit;
+	transition: color 200ms ease;
+}
+.header__menu__item--more a {
+	display: inline-flex;
+	gap: 0.3rem;
+	align-items: center;
+}
+.header__menu__item:hover > a {
+	color: var(--accent-color);
+}
+
+.header__submenu {
+	display: none;
+	list-style: none;
+	background: var(--primary-color);
+	border-radius: var(--br);
+	box-shadow: 0 0 0.3rem 1px var(--secondary-color);
+	padding-block: 0.5rem;
+	position: absolute;
+}
+.header__submenu--profile {
+	right: -0.5rem;
+}
+.header__menu__item--more:hover .header__submenu,
+.header__menu__item--more a:focus + .header__submenu {
+	display: block;
+}
+
+.header__submenu__divider {
+	height: 0.1rem;
+	background: var(--secondary-color);
+	border: none;
+	margin-block: 0.5rem;
+}
+
+.header__submenu__title {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	white-space: nowrap;
+	font-size: var(--fs-small);
+	font-weight: 700;
+	padding-inline: 1rem;
+}
+
+.header__submenu__item--danger {
+	color: var(--danger-color);
+}
+
+.header__submenu__item a {
+	width: 100%;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	white-space: nowrap;
+	padding: 0.2rem 1rem;
+}
+.header__submenu__item a:hover {
+	background: var(--primary-color-hover);
+}
+
+.header__menu__hamburger {
+	display: none;
+}
+
+@media screen and (max-width: 576px) {
+	.header {
+		position: relative;
+	}
+
+	.header__menu {
+		width: 100%;
+		flex-direction: column;
+		gap: 0;
+		position: absolute;
+		top: 3.5rem;
+		left: 0;
+	}
+
+	.header__menu__item {
+		border-bottom: 1px solid var(--secondary-color);
+	}
+
+	.header__menu__item a {
+		display: inline-block;
+		padding-inline: 1rem;
+		padding-block: 0.5rem;
+	}
+
+	.header__submenu {
+		width: 100%;
+		border-radius: 0;
+		box-shadow: 0 0 0 0;
+		border-top: 1px solid var(--secondary-color);
+	}
+	.header__submenu--profile {
+		right: 0;
+	}
+
+	.header__menu__hamburger {
+		display: flex;
+	}
+}

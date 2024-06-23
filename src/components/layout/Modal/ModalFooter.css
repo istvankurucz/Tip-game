@@ -1,0 +1,9 @@
+.modalFooter {
+	display: flex;
+	gap: 1rem;
+	justify-content: flex-end;
+	align-items: center;
+	border-top: 0.1rem solid var(--secondary-color);
+	padding-inline: 1rem;
+	padding-top: 0.5rem;
+}
