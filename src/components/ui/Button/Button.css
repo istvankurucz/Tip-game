@@ -1,0 +1,69 @@
+/* General styles */
+.button {
+	display: inline-flex;
+	gap: 1rem;
+	align-items: center;
+	color: var(--color);
+	background: var(--bg-color);
+	border: 0.1rem solid var(--bg-color);
+	border-radius: var(--br);
+	padding: 0.7rem 1.5rem;
+	transition: background-color 200ms ease, border-color 200ms ease;
+}
+.button:hover {
+	background: var(--bg-hover);
+	border-color: var(--bg-hover);
+}
+
+.button--outlined {
+	color: var(--bg-color);
+	background: transparent;
+}
+.button--outlined:hover {
+	color: var(--color);
+	background: var(--bg-hover);
+}
+
+/* Variants */
+.button--primary {
+	--color: var(--text-color);
+	--bg-color: var(--primary-color);
+	--bg-hover: var(--primary-color-hover);
+}
+
+.button--secondary {
+	--color: var(--text-color);
+	--bg-color: var(--secondary-color);
+	--bg-hover: var(--secondary-color-hover);
+}
+
+.button--accent {
+	--color: var(--primary-color);
+	--bg-color: var(--accent-color);
+	--bg-hover: var(--accent-color-hover);
+}
+
+.button--danger {
+	--color: var(--primary-color);
+	--bg-color: var(--danger-color);
+	--bg-hover: var(--danger-color-hover);
+}
+
+.button--link {
+	--color: var(--text-color);
+	--bg-color: var(--primary-color);
+	--bg-hover: var(--primary-color);
+
+	text-decoration: underline;
+}
+
+/* Options */
+.button--rounded {
+	border-radius: var(--br-pill);
+}
+
+.button--icon {
+	width: 2.4rem;
+	height: 2.4rem;
+	padding: 0.7rem;
+}

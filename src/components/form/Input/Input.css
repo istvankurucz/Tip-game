@@ -1,0 +1,54 @@
+/* General styles */
+.input {
+	--shadow-color: hsl(var(--accent-color-values) / 0.3);
+
+	display: inline-flex;
+}
+.input:focus-within .input__label {
+	color: var(--accent-color);
+}
+
+.input__label {
+	font-size: var(--fs-small);
+	font-weight: 500;
+	transition: color 200ms ease;
+}
+
+.input__required {
+	color: var(--danger-color);
+	margin-left: 0.3rem;
+}
+
+.input__input {
+	background: var(--primary-color);
+	border: 0.1rem solid var(--accent-color);
+	border-radius: var(--br);
+	padding: 0.3rem 0.5rem;
+	transition: box-shadow 200ms 100ms ease;
+}
+.input__input:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 0.2rem var(--shadow-color);
+}
+.input__input:disabled {
+	background: var(--secondary-color);
+	cursor: no-drop;
+}
+
+/* Options */
+.input--vertical {
+	flex-direction: column;
+}
+.input--vertical .input__label {
+	margin-left: 0.5rem;
+}
+
+.input--horizontal {
+	flex-direction: row;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.input--full {
+	display: flex;
+}
