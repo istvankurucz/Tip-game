@@ -8,15 +8,17 @@ function ModalHeader({ setShow, children }) {
 	return (
 		<header className="modalHeader">
 			<h2 className="modalHeader__title">{children}</h2>
-			<Button variant="primary" icon rounded onClick={() => setShow(false)}>
-				<FontAwesomeIcon icon={faClose} />
-			</Button>
+			{setShow != null && (
+				<Button variant="primary" icon rounded onClick={() => setShow(false)}>
+					<FontAwesomeIcon icon={faClose} />
+				</Button>
+			)}
 		</header>
 	);
 }
 
 ModalHeader.propTypes = {
-	setShow: PropTypes.func.isRequired,
+	setShow: PropTypes.func,
 	children: PropTypes.node.isRequired,
 };
 

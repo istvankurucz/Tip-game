@@ -1,7 +1,8 @@
 .checkbox {
 	display: inline-flex;
 	gap: 0.5rem;
-	align-items: center;
+	align-items: flex-start;
+	font-size: var(--fs-small);
 	user-select: none;
 	cursor: pointer;
 }
@@ -16,6 +17,7 @@
 	place-items: center;
 	border: 0.1rem solid var(--secondary-color);
 	border-radius: var(--br-small);
+	margin-top: 0.25rem;
 }
 .checkbox__marker::after {
 	content: "";

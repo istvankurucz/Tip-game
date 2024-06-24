@@ -88,7 +88,7 @@
 	white-space: nowrap;
 	font-size: var(--fs-small);
 	font-weight: 700;
-	padding-inline: 1rem;
+	padding-inline: 1.5rem;
 }
 
 .header__submenu__item--danger {
@@ -101,7 +101,7 @@
 	gap: 0.5rem;
 	align-items: center;
 	white-space: nowrap;
-	padding: 0.2rem 1rem;
+	padding: 0.2rem 1.5rem;
 }
 .header__submenu__item a:hover {
 	background: var(--primary-color-hover);

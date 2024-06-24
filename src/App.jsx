@@ -3,17 +3,28 @@ import Header from "./components/layout/Header/Header";
 import Home from "./pages/Home/Home";
 import Footer from "./components/layout/Footer/Footer";
 import "./App.css";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 
 function App() {
 	return (
 		<div className="app">
-			<Header />
-
 			<Routes>
-				<Route path="/" element={<Home />} />
-			</Routes>
+				<Route path="/signin" element={<SignIn />} />
+				<Route path="/signup" element={<SignUp />} />
 
-			<Footer />
+				<Route
+					path="/"
+					element={
+						<>
+							<Header />
+							<Home />
+							<Footer />
+						</>
+					}
+				/>
+				<Route path="*" element={<h1>404, Page not found.</h1>} />
+			</Routes>
 		</div>
 	);
 }

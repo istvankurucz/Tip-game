@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
+import ModalHeader from "./ModalHeader";
+import ModalBody from "./ModalBody";
 import ModalFooter from "./ModalFooter";
 import "./Modal.css";
-import ModalMain from "./ModalMain";
-import ModalHeader from "./ModalHeader";
 
 function Modal({ setShow, title, className, children }) {
 	return (
@@ -15,14 +15,14 @@ function Modal({ setShow, title, className, children }) {
 }
 
 Modal.propTypes = {
-	setShow: PropTypes.func.isRequired,
+	setShow: PropTypes.func,
 	title: PropTypes.string,
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
 
 Modal.Header = ModalHeader;
-Modal.Main = ModalMain;
+Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
 
 export default Modal;
