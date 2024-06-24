@@ -24,6 +24,11 @@
 	background: var(--bg-hover);
 }
 
+.button:disabled {
+	opacity: 0.5;
+	cursor: no-drop;
+}
+
 /* Variants */
 .button--primary {
 	--color: var(--text-color);

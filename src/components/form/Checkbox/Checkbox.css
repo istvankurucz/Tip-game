@@ -32,3 +32,8 @@
 	background: var(--accent-color);
 	border-color: var(--accent-color);
 }
+
+.checkbox__required {
+	color: var(--danger-color);
+	margin-left: 0.3rem;
+}

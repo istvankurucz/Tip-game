@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import PropTypes from "prop-types";
 import "./Checkbox.css";
 
-const Checkbox = forwardRef(({ id, label, className }, ref) => {
+const Checkbox = forwardRef(({ id, label, className, ...rest }, ref) => {
 	function handleKeyDown(e) {
 		if (!id) return;
 
@@ -19,9 +19,12 @@ const Checkbox = forwardRef(({ id, label, className }, ref) => {
 			className={`checkbox${className ? ` ${className}` : ""}`}
 			onKeyDown={handleKeyDown}
 		>
-			<input type="checkbox" id={id} ref={ref} hidden className="checkbox__input" />
+			<input type="checkbox" id={id} ref={ref} hidden className="checkbox__input" {...rest} />
 			<span className="checkbox__marker"></span>
-			<span className="checkbox__label">{label}</span>
+			<span className="checkbox__label">
+				{label}
+				{rest?.required && <span className="checkbox__required">*</span>}
+			</span>
 		</label>
 	);
 });

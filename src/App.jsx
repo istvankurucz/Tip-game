@@ -5,8 +5,12 @@ import Footer from "./components/layout/Footer/Footer";
 import "./App.css";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
+import useAuth from "./hooks/useAuth";
 
 function App() {
+	// Hook to handle authentication
+	useAuth();
+
 	return (
 		<div className="app">
 			<Routes>
