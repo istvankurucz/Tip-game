@@ -4,7 +4,7 @@ import Button from "../../components/ui/Button/Button";
 import Input from "../../components/form/Input/Input";
 import TextLink from "../../components/ui/TextLink/TextLink";
 import "./SignIn.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
@@ -94,9 +94,11 @@ function SignIn() {
 					</Auth.Body>
 
 					<Modal.Footer>
-						<Button type="button" variant="secondary">
-							Cancel
-						</Button>
+						<Link to="/">
+							<Button type="button" variant="secondary" tabIndex={-1}>
+								Cancel
+							</Button>
+						</Link>
 						<Button type="submit" variant="accent" ref={submitButtonRef}>
 							{loading ? "Loading..." : "Sign In"}
 						</Button>

@@ -8,7 +8,7 @@ import "./SignUp.css";
 import { useRef, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../config/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignUp() {
 	const navigate = useNavigate();
@@ -149,9 +149,11 @@ function SignUp() {
 					</Auth.Body>
 
 					<Modal.Footer>
-						<Button type="button" variant="secondary">
-							Cancel
-						</Button>
+						<Link to="/">
+							<Button type="button" variant="secondary" tabIndex={-1}>
+								Cancel
+							</Button>
+						</Link>
 						<Button type="submit" variant="accent" ref={submitButtonRef}>
 							{loading ? "Loading..." : "Sign Up"}
 						</Button>
