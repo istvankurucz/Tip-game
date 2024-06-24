@@ -1,0 +1,10 @@
+.overview__section {
+	padding: 2rem 1rem;
+}
+.overview__section--tournament {
+	background: var(--secondary-color);
+}
+
+.overview__intro__p {
+	text-align: center;
+}

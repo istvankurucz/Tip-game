@@ -6,10 +6,22 @@ import "./App.css";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import useAuth from "./hooks/useAuth";
+import Overview from "./pages/Overview/Overview";
 
 function App() {
 	// Hook to handle authentication
 	useAuth();
+
+	// Function that return the component with Header and Footer
+	function addHeaderAndFooterToComponent(component) {
+		return (
+			<>
+				<Header />
+				{component}
+				<Footer />
+			</>
+		);
+	}
 
 	return (
 		<div className="app">
@@ -17,16 +29,9 @@ function App() {
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/signup" element={<SignUp />} />
 
-				<Route
-					path="/"
-					element={
-						<>
-							<Header />
-							<Home />
-							<Footer />
-						</>
-					}
-				/>
+				<Route path="/overview" element={addHeaderAndFooterToComponent(<Overview />)} />
+				<Route path="/" element={addHeaderAndFooterToComponent(<Home />)} />
+
 				<Route path="*" element={<h1>404, Page not found.</h1>} />
 			</Routes>
 		</div>

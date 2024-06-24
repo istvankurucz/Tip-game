@@ -165,3 +165,9 @@
 	left: -75%;
 	z-index: -1;
 }
+
+@media screen and (max-width: 992px) {
+	.home__usage__graphics {
+		opacity: 0.15;
+	}
+}

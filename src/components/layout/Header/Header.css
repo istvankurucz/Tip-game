@@ -94,6 +94,9 @@
 .header__submenu__item--danger {
 	color: var(--danger-color);
 }
+.header__submenu__item--success {
+	color: var(--success-color);
+}
 
 .header__submenu__item a {
 	width: 100%;

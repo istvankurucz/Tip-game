@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
+import { useStateValue } from "../../../contexts/context API/StateProvider";
 import { Link } from "react-router-dom";
 import logo from "/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faAngleDown,
 	faArrowRightFromBracket,
+	faArrowRightToBracket,
 	faBars,
 	faSignal,
 	faUser,
@@ -12,9 +15,13 @@ import {
 import Container from "../Container/Container";
 import Button from "../../ui/Button/Button";
 import "./Header.css";
-import { useEffect, useState } from "react";
+import signOutUser from "../../../utils/user/signOutUser";
 
 function Header() {
+	// Get user from Context API
+	const [{ user }] = useStateValue();
+
+	// States to handle menu visibility
 	const [showMenu, setShowMenu] = useState(window.innerWidth >= 576);
 	const [showProfileSubmenu, setShowProfileSubmenu] = useState(window.innerWidth >= 576);
 
@@ -41,7 +48,7 @@ function Header() {
 					{showMenu && (
 						<ul className="header__menu">
 							<li className="header__menu__item">
-								<Link to="/">Overview</Link>
+								<Link to="/overview">Overview</Link>
 							</li>
 							<li className="header__menu__item">
 								<Link to="/">My tips</Link>
@@ -50,48 +57,60 @@ function Header() {
 								<Link to="/">Rankings</Link>
 							</li>
 							<li className="header__menu__item header__menu__item--more">
-								<Link to="/" onClick={() => setShowProfileSubmenu((prev) => !prev)}>
+								<Link to="" onClick={() => setShowProfileSubmenu((prev) => !prev)}>
 									Profile <FontAwesomeIcon icon={faAngleDown} />
 								</Link>
 
 								{showProfileSubmenu && (
 									<ul className="header__submenu header__submenu--profile">
-										<li className="header__submenu__item">
-											<Link to="/">
-												<FontAwesomeIcon icon={faUser} /> Me
-											</Link>
-										</li>
-										<li className="header__submenu__item">
-											<Link to="/">
-												<FontAwesomeIcon icon={faSignal} /> Stats
-											</Link>
-										</li>
+										{user != null && (
+											<>
+												<li className="header__submenu__item">
+													<Link to="/">
+														<FontAwesomeIcon icon={faUser} /> Me
+													</Link>
+												</li>
+												<li className="header__submenu__item">
+													<Link to="/">
+														<FontAwesomeIcon icon={faSignal} /> Stats
+													</Link>
+												</li>
 
-										<hr className="header__submenu__divider" />
+												<hr className="header__submenu__divider" />
 
-										<span className="header__submenu__title">
-											<FontAwesomeIcon icon={faUsers} /> My teams
-										</span>
-										<li className="header__submenu__item">
-											<Link to="/">Team 1</Link>
-										</li>
-										<li className="header__submenu__item">
-											<Link to="/">Team 2</Link>
-										</li>
-										<li className="header__submenu__item">
-											<Link to="/">Team 3</Link>
-										</li>
-										<li className="header__submenu__item">
-											<Link to="/">and X more</Link>
-										</li>
+												<span className="header__submenu__title">
+													<FontAwesomeIcon icon={faUsers} /> My teams
+												</span>
+												<li className="header__submenu__item">
+													<Link to="/">Team 1</Link>
+												</li>
+												<li className="header__submenu__item">
+													<Link to="/">Team 2</Link>
+												</li>
+												<li className="header__submenu__item">
+													<Link to="/">Team 3</Link>
+												</li>
+												<li className="header__submenu__item">
+													<Link to="/">and X more</Link>
+												</li>
 
-										<hr className="header__submenu__divider" />
+												<hr className="header__submenu__divider" />
+											</>
+										)}
 
-										<li className="header__submenu__item header__submenu__item--danger">
-											<Link to="/">
-												<FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign out
-											</Link>
-										</li>
+										{user != null ? (
+											<li className="header__submenu__item header__submenu__item--danger">
+												<Link onClick={signOutUser}>
+													<FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign out
+												</Link>
+											</li>
+										) : (
+											<li className="header__submenu__item header__submenu__item--success">
+												<Link to="/signin">
+													<FontAwesomeIcon icon={faArrowRightToBracket} /> Sign in
+												</Link>
+											</li>
+										)}
 									</ul>
 								)}
 							</li>
