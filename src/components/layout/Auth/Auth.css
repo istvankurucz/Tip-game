@@ -1,0 +1,11 @@
+.auth {
+	width: 100vw;
+	height: 100svh;
+	display: grid;
+	place-items: center;
+	background: linear-gradient(
+		to bottom right,
+		hsl(var(--accent-color-values) / 0.6),
+		hsl(var(--accent-color-values) / 0.3)
+	);
+}
