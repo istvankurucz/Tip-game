@@ -56,13 +56,15 @@
 	transition: background-color 200ms ease;
 	cursor: pointer;
 }
-.select__option:hover {
+.select__option:hover,
+.select__option--hover {
 	background: var(--primary-color-hover);
 }
 .select__option--selected {
 	color: var(--primary-color);
 	background: var(--accent-color);
 }
-.select__option--selected:hover {
+.select__option--selected:hover,
+.select__option--selected.select__option--hover {
 	background: var(--accent-color-hover);
 }

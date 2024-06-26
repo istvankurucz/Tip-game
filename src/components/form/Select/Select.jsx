@@ -2,10 +2,44 @@ import PropTypes from "prop-types";
 import "./Select.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { forwardRef, useRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
 const Select = forwardRef(({ label, options, index, setIndex, id, className }, ref) => {
 	const optionsRef = useRef();
+	const [hoveredIndex, setHoveredIndex] = useState(index);
+
+	useEffect(() => {
+		// Navigate through the options with keyboard and select the option with Enter
+		function handleSelectKeyNav(e) {
+			// Check if the select options are open or not
+			const isOptionsOpen = optionsRef.current.classList.contains("select__options");
+			if (!isOptionsOpen) return;
+
+			// Set new selected item with Space or Enter
+			if (e.code === "Enter" || e.code === "NumpadEnter" || e.code === "Space") {
+				setIndex(hoveredIndex);
+			}
+			// Navigate with arrow keys
+			if (e.code === "ArrowDown" || e.code === "ArrowRight") {
+				setHoveredIndex((prev) => {
+					if (prev === options.length - 1) return prev;
+					else return prev + 1;
+				});
+			}
+			if (e.code === "ArrowUp" || e.code === "ArrowLeft") {
+				setHoveredIndex((prev) => {
+					if (prev === 0) return prev;
+					else return prev - 1;
+				});
+			}
+		}
+
+		window.addEventListener("keydown", handleSelectKeyNav);
+
+		return () => window.removeEventListener("keydown", handleSelectKeyNav);
+	}, [hoveredIndex, options.length, setIndex]);
+
+	console.log(hoveredIndex);
 
 	return (
 		<div className={`select${className ? ` ${className}` : ""}`}>
@@ -37,7 +71,9 @@ const Select = forwardRef(({ label, options, index, setIndex, id, className }, r
 					<li
 						key={i}
 						title={option}
-						className={`select__option${index === i ? " select__option--selected" : ""}`}
+						className={`select__option${index === i ? " select__option--selected" : ""}${
+							hoveredIndex === i ? " select__option--hover" : ""
+						}`}
 						onClick={() => setIndex(i)}
 					>
 						{option}
