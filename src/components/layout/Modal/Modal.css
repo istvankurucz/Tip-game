@@ -1,6 +1,8 @@
 .modal {
 	width: min(400px, 90%);
+	max-height: 95%;
 	background: var(--primary-color);
 	border-radius: var(--br);
 	padding-block: 1rem;
+	overflow-y: auto;
 }

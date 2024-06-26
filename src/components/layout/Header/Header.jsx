@@ -8,6 +8,7 @@ import {
 	faArrowRightFromBracket,
 	faArrowRightToBracket,
 	faBars,
+	faCrown,
 	faSignal,
 	faUser,
 	faUsers,
@@ -68,6 +69,11 @@ function Header() {
 												<li className="header__submenu__item">
 													<Link to="/">
 														<FontAwesomeIcon icon={faUser} /> Me
+													</Link>
+												</li>
+												<li className="header__submenu__item">
+													<Link to="/">
+														<FontAwesomeIcon icon={faCrown} /> Tournaments
 													</Link>
 												</li>
 												<li className="header__submenu__item">

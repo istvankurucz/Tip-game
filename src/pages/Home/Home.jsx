@@ -38,9 +38,11 @@ function Home() {
 					</p>
 					<p className="home__p">Click on the button below to create an account!</p>
 
-					<Button centered>
-						<FontAwesomeIcon icon={faUser} /> Create account
-					</Button>
+					<Link to="/signup" className="home__intro__signup">
+						<Button centered tabIndex={-1}>
+							<FontAwesomeIcon icon={faUser} /> Create account
+						</Button>
+					</Link>
 
 					<div className="home__section__footballs">
 						<FontAwesomeIcon

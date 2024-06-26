@@ -57,6 +57,10 @@
 	text-align: center;
 }
 
+.home__intro__signup {
+	text-decoration: none;
+}
+
 .home__intro__football {
 	font-size: 10rem;
 	color: var(--accent-color);

@@ -8,6 +8,12 @@ const Select = forwardRef(({ label, options, index, setIndex, id, className }, r
 	const optionsRef = useRef();
 	const [hoveredIndex, setHoveredIndex] = useState(index);
 
+	// Function that hides the options and resets the hover index
+	function handleSelectButtonBlur() {
+		setHoveredIndex(index);
+		setTimeout(() => optionsRef.current.classList.remove("select__options--show"), 100);
+	}
+
 	useEffect(() => {
 		// Navigate through the options with keyboard and select the option with Enter
 		function handleSelectKeyNav(e) {
@@ -39,8 +45,6 @@ const Select = forwardRef(({ label, options, index, setIndex, id, className }, r
 		return () => window.removeEventListener("keydown", handleSelectKeyNav);
 	}, [hoveredIndex, options.length, setIndex]);
 
-	console.log(hoveredIndex);
-
 	return (
 		<div className={`select${className ? ` ${className}` : ""}`}>
 			<input
@@ -56,9 +60,7 @@ const Select = forwardRef(({ label, options, index, setIndex, id, className }, r
 				type="button"
 				className="select__button"
 				onClick={() => optionsRef.current.classList.toggle("select__options--show")}
-				onBlur={() =>
-					setTimeout(() => optionsRef.current.classList.remove("select__options--show"), 100)
-				}
+				onBlur={handleSelectButtonBlur}
 			>
 				<span title={options[index]} className="select__button__selected">
 					{options[index]}
@@ -72,7 +74,7 @@ const Select = forwardRef(({ label, options, index, setIndex, id, className }, r
 						key={i}
 						title={option}
 						className={`select__option${index === i ? " select__option--selected" : ""}${
-							hoveredIndex === i ? " select__option--hover" : ""
+							hoveredIndex != null && hoveredIndex === i ? " select__option--hover" : ""
 						}`}
 						onClick={() => setIndex(i)}
 					>

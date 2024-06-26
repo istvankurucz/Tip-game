@@ -2,12 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/layout/Header/Header";
 import Home from "./pages/Home/Home";
 import Footer from "./components/layout/Footer/Footer";
-import "./App.css";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import useAuth from "./hooks/useAuth";
 import Overview from "./pages/Overview/Overview";
 import Feedback from "./components/ui/Feedback/Feedback";
+import "./App.css";
 
 function App() {
 	// Hook to handle authentication
