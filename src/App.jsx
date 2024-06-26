@@ -7,6 +7,7 @@ import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import useAuth from "./hooks/useAuth";
 import Overview from "./pages/Overview/Overview";
+import Feedback from "./components/ui/Feedback/Feedback";
 
 function App() {
 	// Hook to handle authentication
@@ -25,6 +26,8 @@ function App() {
 
 	return (
 		<div className="app">
+			<Feedback />
+
 			<Routes>
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/signup" element={<SignUp />} />

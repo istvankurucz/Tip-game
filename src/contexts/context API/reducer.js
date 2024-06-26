@@ -2,7 +2,7 @@ export const initialState = {
 	user: null,
 	feedback: {
 		show: false,
-		type: "info",
+		type: "",
 		message: "",
 		details: "",
 	},

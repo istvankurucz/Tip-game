@@ -9,11 +9,6 @@ function Overview() {
 			<section id="overviewIntro" className="overview__section overview__section--intro">
 				<Container centered>
 					<PageTitle>Overview</PageTitle>
-
-					<p className="overview__intro__p">
-						Here you can find everything you need to know about your standing, groups, stats
-						etc.
-					</p>
 				</Container>
 			</section>
 
