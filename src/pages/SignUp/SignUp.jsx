@@ -9,8 +9,10 @@ import { useRef, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { useStateValue } from "../../contexts/context API/StateProvider";
 
 function SignUp() {
+	const [, dispatch] = useStateValue();
 	const navigate = useNavigate();
 
 	// Refs for the inputs
@@ -47,6 +49,27 @@ function SignUp() {
 		return { ok: true, message: "" };
 	}
 
+	// Function to reset the submit button
+	function resetSubmitButton() {
+		setLoading(false);
+		submitButtonRef.current.removeAttribute("disabled");
+	}
+
+	// Function to create messages to Feedback component from error codes
+	function createFeedbackMessage(errorCode) {
+		switch (errorCode) {
+			case "auth/weak-password": {
+				return { message: "The password must be at least 6 characters.", details: "" };
+			}
+			case "auth/email-already-in-use": {
+				return { message: "The email is already used.", details: "" };
+			}
+			default: {
+				return { message: "An error occured.", details: "Please try again later." };
+			}
+		}
+	}
+
 	// Function to create a user with Firebase
 	async function signUpUser(e) {
 		e.preventDefault();
@@ -62,7 +85,19 @@ function SignUp() {
 		// 2. Validate form data
 		const validationResult = validateSignUpFormData(formData);
 		if (!validationResult.ok) {
-			console.log(validationResult.message);
+			// console.log(validationResult.message);
+			// Show feedback in connection with the error
+			dispatch({
+				type: "SET_FEEDBACK",
+				feedback: {
+					type: "error",
+					show: true,
+					message: validationResult.message,
+					details: "",
+				},
+			});
+
+			resetSubmitButton();
 			return;
 		}
 
@@ -80,17 +115,26 @@ function SignUp() {
 			// console.log("User at the end of signup process:", user);
 
 			// Actions after signup
-			setLoading(false);
-			submitButtonRef.current.removeAttribute("disabled");
+			resetSubmitButton();
 
 			// Navigate to Overview page
 			navigate("/overview");
 		} catch (e) {
-			console.log("Error signing up the user.", e);
+			// console.log("Error signing up the user.", e);
+			// Give feedback from the error
+			const { message, details } = createFeedbackMessage(e.code);
+			dispatch({
+				type: "SET_FEEDBACK",
+				feedback: {
+					type: "error",
+					show: true,
+					message,
+					details,
+				},
+			});
 
 			// Actions after signup
-			setLoading(false);
-			submitButtonRef.current.removeAttribute("disabled");
+			resetSubmitButton();
 		}
 	}
 

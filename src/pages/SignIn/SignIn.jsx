@@ -8,8 +8,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
+import { useStateValue } from "../../contexts/context API/StateProvider";
 
 function SignIn() {
+	const [, dispatch] = useStateValue();
 	const navigate = useNavigate();
 
 	// Refs for the inputs
@@ -30,6 +32,24 @@ function SignIn() {
 		return { email, password };
 	}
 
+	// Function to create messages to Feedback component from error codes
+	function createFeedbackMessage(errorCode) {
+		switch (errorCode) {
+			case "auth/invalid-credential": {
+				return { message: "Email or password is incorrect", details: "" };
+			}
+			default: {
+				return { message: "An error occured.", details: "Please try again later." };
+			}
+		}
+	}
+
+	// Function that reset the submit button
+	function resetSubmitButton() {
+		setLoading(false);
+		submitButtonRef.current.removeAttribute("disabled");
+	}
+
 	// Function to sign in the user
 	async function signInUser(e) {
 		e.preventDefault();
@@ -40,7 +60,7 @@ function SignIn() {
 
 		// 1. Get the form data
 		const formData = getSignInFormData();
-		console.log("Form data:", formData);
+		// console.log("Form data:", formData);
 
 		// 2. Sign in the user
 		const { email, password } = formData;
@@ -49,17 +69,26 @@ function SignIn() {
 			await signInWithEmailAndPassword(auth, email, password);
 
 			// Actions after signin
-			setLoading(false);
-			submitButtonRef.current.removeAttribute("disabled");
+			resetSubmitButton();
 
 			// Navigate to Overview page
 			navigate("/overview");
 		} catch (e) {
 			console.log("Error signing in the user.", e);
+			// Give feedback from the error
+			const { message, details } = createFeedbackMessage(e.code);
+			dispatch({
+				type: "SET_FEEDBACK",
+				feedback: {
+					type: "error",
+					show: true,
+					message,
+					details,
+				},
+			});
 
 			// Actions after signin
-			setLoading(false);
-			submitButtonRef.current.removeAttribute("disabled");
+			resetSubmitButton();
 		}
 	}
 
