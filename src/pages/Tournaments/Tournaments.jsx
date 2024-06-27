@@ -2,12 +2,13 @@ import Select from "../../components/form/Select/Select";
 import Section from "../../components/layout/Section/Section";
 import PageTitle from "../../components/ui/PageTitle/PageTitle";
 import Subtitle from "../../components/ui/Subtitle/Subtitle";
-import { tournamants } from "../../assets/tournaments/tournaments";
+import { tournaments } from "../../assets/tournaments/tournaments";
 import "./Tournaments.css";
 import { useState } from "react";
 import Page from "../../components/layout/Page/Page";
+import Button from "../../components/ui/Button/Button";
 
-const selectOptions = Array.from(tournamants.values()).map((league) => league.leagueName);
+const selectOptions = Array.from(tournaments?.values()).map((tournament) => tournament.name);
 
 function Tournaments() {
 	const [selectIndex, setSelectIndex] = useState(0);
@@ -27,13 +28,16 @@ function Tournaments() {
 			<Section id="tournamentsSelect" className="tournaments__section--select">
 				<Subtitle>Select a tournament</Subtitle>
 
-				<Select
-					label="Tournament"
-					id="tournamentsSelectInput"
-					options={selectOptions}
-					index={selectIndex}
-					setIndex={setSelectIndex}
-				/>
+				<form className="tournament__select__form">
+					<Select
+						label="Tournament"
+						id="tournamentsSelectInput"
+						options={selectOptions}
+						index={selectIndex}
+						setIndex={setSelectIndex}
+					/>
+					<Button type="submit">Save</Button>
+				</form>
 			</Section>
 		</Page>
 	);

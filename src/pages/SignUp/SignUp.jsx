@@ -69,7 +69,9 @@ function SignUp() {
 	// Function to set the default values for the user in the DB
 	async function createUserDb(user) {
 		const userRef = doc(db, "users", user.uid);
-		await setDoc(userRef, {});
+		await setDoc(userRef, {
+			activeTournament: defaultTournament[0],
+		});
 
 		// Create the default tournament for the user
 		const defaultTournamentRef = doc(db, `users/${user.uid}/tournaments/${defaultTournament[0]}`);

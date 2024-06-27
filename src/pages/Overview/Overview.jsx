@@ -1,32 +1,27 @@
-import { useState } from "react";
-import Select from "../../components/form/Select/Select";
 import PageTitle from "../../components/ui/PageTitle/PageTitle";
-import Subtitle from "../../components/ui/Subtitle/Subtitle";
 import Section from "../../components/layout/Section/Section";
 import "./Overview.css";
 import Page from "../../components/layout/Page/Page";
-
-const selectOptions = ["Option 1 Option 1 Option 1 Option 1", "Option 2", "Option 1"];
+import { useStateValue } from "../../contexts/context API/StateProvider";
+import { tournaments } from "../../assets/tournaments/tournaments";
+import { Link } from "react-router-dom";
 
 function Overview() {
-	const [selectIndex, setSelectIndex] = useState(0);
+	const [{ user }] = useStateValue();
+
+	const tournament = tournaments.get(user?.activeTournament);
 
 	return (
 		<Page>
-			<Section id="overviewIntro" isIntro>
-				<PageTitle>Overview</PageTitle>
-			</Section>
+			<Section id="overviewIntro">
+				<PageTitle className="overview__title">Overview</PageTitle>
 
-			<Section id="overviewActiveTournament" isIntro className="overview__section--tournament">
-				<Subtitle>Select tournament</Subtitle>
-
-				<Select
-					label="Label for the select"
-					options={selectOptions}
-					index={selectIndex}
-					setIndex={setSelectIndex}
-					id="select"
-				/>
+				<div className="overview__tournament__active">
+					<p className="overview__p">
+						Tournament: <strong className="overview__tournament">{tournament?.name}</strong>
+					</p>
+					<Link to="/tournaments">Change</Link>
+				</div>
 			</Section>
 		</Page>
 	);

@@ -9,3 +9,9 @@
 .tournaments__section--select {
 	background: var(--secondary-color);
 }
+
+.tournament__select__form {
+	display: flex;
+	gap: 2rem;
+	align-items: flex-end;
+}

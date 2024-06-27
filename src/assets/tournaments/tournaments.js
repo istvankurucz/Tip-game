@@ -1,4 +1,4 @@
-export const tournamants = new Map([
+export const tournaments = new Map([
 	[
 		4694,
 		{
@@ -9,4 +9,4 @@ export const tournamants = new Map([
 	],
 ]);
 
-export const defaultTournament = Array.from(tournamants)[0];
+export const defaultTournament = Array.from(tournaments)[0];

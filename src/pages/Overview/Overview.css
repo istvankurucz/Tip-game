@@ -1,7 +1,16 @@
-.overview__section--tournament {
-	background: var(--secondary-color);
+.overview__title {
+	margin-bottom: 1rem;
 }
 
-.overview__intro__p {
-	text-align: center;
+.overview__tournament__active {
+	display: flex;
+	gap: 2rem;
+}
+
+.overview__tournament__active a {
+	color: var(--accent-color);
+}
+
+.overview__tournament {
+	font-weight: 500;
 }
