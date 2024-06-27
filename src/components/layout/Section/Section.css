@@ -1,0 +1,5 @@
+.section {
+	--py: 2rem;
+
+	padding: var(--py) 1rem;
+}

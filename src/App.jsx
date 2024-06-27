@@ -1,28 +1,16 @@
 import { Route, Routes } from "react-router-dom";
-import Header from "./components/layout/Header/Header";
 import Home from "./pages/Home/Home";
-import Footer from "./components/layout/Footer/Footer";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import useAuth from "./hooks/useAuth";
 import Overview from "./pages/Overview/Overview";
 import Feedback from "./components/ui/Feedback/Feedback";
+import Tournaments from "./pages/Tournaments/Tournaments";
 import "./App.css";
 
 function App() {
 	// Hook to handle authentication
 	useAuth();
-
-	// Function that return the component with Header and Footer
-	function addHeaderAndFooterToComponent(component) {
-		return (
-			<>
-				<Header />
-				{component}
-				<Footer />
-			</>
-		);
-	}
 
 	return (
 		<div className="app">
@@ -32,8 +20,9 @@ function App() {
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/signup" element={<SignUp />} />
 
-				<Route path="/overview" element={addHeaderAndFooterToComponent(<Overview />)} />
-				<Route path="/" element={addHeaderAndFooterToComponent(<Home />)} />
+				<Route path="/overview" element={<Overview />} />
+				<Route path="/tournaments" element={<Tournaments />} />
+				<Route path="/" element={<Home />} />
 
 				<Route path="*" element={<h1>404, Page not found.</h1>} />
 			</Routes>

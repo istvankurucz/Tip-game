@@ -72,7 +72,7 @@ function Header() {
 													</Link>
 												</li>
 												<li className="header__submenu__item">
-													<Link to="/">
+													<Link to="/tournaments">
 														<FontAwesomeIcon icon={faCrown} /> Tournaments
 													</Link>
 												</li>

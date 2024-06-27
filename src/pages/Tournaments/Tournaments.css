@@ -1,0 +1,11 @@
+.tournaments__title {
+	margin-bottom: 1rem;
+}
+
+.tournaments__p {
+	text-align: center;
+}
+
+.tournaments__section--select {
+	background: var(--secondary-color);
+}

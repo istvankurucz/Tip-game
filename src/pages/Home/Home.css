@@ -1,8 +1,4 @@
 /* General styles */
-.home__section {
-	padding: 3rem 1rem;
-}
-
 .home__title {
 	font-size: var(--fs-title);
 	text-align: center;

@@ -1,0 +1,3 @@
+.page__main {
+	min-height: calc(100svh - var(--header-height) - var(--footer-height));
+}

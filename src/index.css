@@ -9,6 +9,10 @@
 }
 
 :root {
+	/* Dimensions */
+	--header-height: 3rem;
+	--footer-height: 5.5rem;
+
 	/* Colors */
 	--primary-color-values: 0 0% 98%;
 	--primary-color-hover-values: 0 0% 91%;
