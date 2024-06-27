@@ -52,7 +52,7 @@ function Header() {
 								<Link to="/overview">Overview</Link>
 							</li>
 							<li className="header__menu__item">
-								<Link to="/">My tips</Link>
+								<Link to="/mytips">My tips</Link>
 							</li>
 							<li className="header__menu__item">
 								<Link to="/">Rankings</Link>

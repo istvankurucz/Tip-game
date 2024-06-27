@@ -2,15 +2,6 @@
 	margin-bottom: 1rem;
 }
 
-.overview__tournament__active {
-	display: flex;
-	gap: 2rem;
-}
-
-.overview__tournament__active a {
-	color: var(--accent-color);
-}
-
 .overview__tournament {
 	font-weight: 500;
 }

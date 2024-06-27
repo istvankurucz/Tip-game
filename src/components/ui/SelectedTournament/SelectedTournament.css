@@ -1,0 +1,8 @@
+.selectedTournament {
+	display: flex;
+	gap: 2rem;
+}
+
+.selectedTournament__change {
+	color: var(--accent-color);
+}

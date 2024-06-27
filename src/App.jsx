@@ -7,6 +7,7 @@ import Overview from "./pages/Overview/Overview";
 import Feedback from "./components/ui/Feedback/Feedback";
 import Tournaments from "./pages/Tournaments/Tournaments";
 import "./App.css";
+import MyTips from "./pages/MyTips/MyTips";
 
 function App() {
 	// Hook to handle authentication
@@ -21,6 +22,7 @@ function App() {
 				<Route path="/signup" element={<SignUp />} />
 
 				<Route path="/overview" element={<Overview />} />
+				<Route path="/mytips" element={<MyTips />} />
 				<Route path="/tournaments" element={<Tournaments />} />
 				<Route path="/" element={<Home />} />
 
