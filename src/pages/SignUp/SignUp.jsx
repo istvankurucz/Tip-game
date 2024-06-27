@@ -7,9 +7,11 @@ import TextLink from "../../components/ui/TextLink/TextLink";
 import "./SignUp.css";
 import { useRef, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../config/firebase";
+import { auth, db } from "../../config/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useStateValue } from "../../contexts/context API/StateProvider";
+import { doc, setDoc } from "firebase/firestore";
+import { defaultTournament } from "../../assets/tournaments/tournaments";
 
 function SignUp() {
 	const [, dispatch] = useStateValue();
@@ -47,6 +49,35 @@ function SignUp() {
 			return { ok: false, message: "Password and Password Confirm don't match." };
 		if (!policy) return { ok: false, message: "The Data Policy is not approved." };
 		return { ok: true, message: "" };
+	}
+
+	// Function to set the signed up user in Firebase auth
+	async function createUserAuth(username, email, password) {
+		// Create the user based on email and password
+		const { user } = await createUserWithEmailAndPassword(auth, email, password);
+		// console.log("Response from signup:", user);
+
+		// Update the displayName of the user with username
+		await updateProfile(user, {
+			displayName: username,
+		});
+		// console.log("User at the end of signup process:", user);
+
+		return user;
+	}
+
+	// Function to set the default values for the user in the DB
+	async function createUserDb(user) {
+		const userRef = doc(db, "users", user.uid);
+		await setDoc(userRef, {});
+
+		// Create the default tournament for the user
+		const defaultTournamentRef = doc(db, `users/${user.uid}/tournaments/${defaultTournament[0]}`);
+		await setDoc(defaultTournamentRef, {
+			...defaultTournament[1],
+			winner: "",
+			topScorer: "",
+		});
 	}
 
 	// Function to reset the submit button
@@ -104,15 +135,11 @@ function SignUp() {
 		// 3. Sign up the user
 		const { username, email, password } = formData;
 		try {
-			// Create the user based on email and password
-			const { user } = await createUserWithEmailAndPassword(auth, email, password);
-			// console.log("Response from signup:", user);
+			// Sign up the user
+			const user = await createUserAuth(username, email, password);
 
-			// Update the displayName of the user with username
-			await updateProfile(user, {
-				displayName: username,
-			});
-			// console.log("User at the end of signup process:", user);
+			// Create the user in the DB
+			await createUserDb(user);
 
 			// Actions after signup
 			resetSubmitButton();
@@ -120,7 +147,7 @@ function SignUp() {
 			// Navigate to Overview page
 			navigate("/overview");
 		} catch (e) {
-			// console.log("Error signing up the user.", e);
+			console.log("Error signing up the user.", e);
 			// Give feedback from the error
 			const { message, details } = createFeedbackMessage(e.code);
 			dispatch({

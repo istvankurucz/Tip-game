@@ -2,12 +2,12 @@ import Select from "../../components/form/Select/Select";
 import Section from "../../components/layout/Section/Section";
 import PageTitle from "../../components/ui/PageTitle/PageTitle";
 import Subtitle from "../../components/ui/Subtitle/Subtitle";
-import { leagues } from "../../assets/leagues/leagues";
+import { tournamants } from "../../assets/tournaments/tournaments";
 import "./Tournaments.css";
 import { useState } from "react";
 import Page from "../../components/layout/Page/Page";
 
-const selectOptions = Array.from(leagues.values()).map((league) => league.leagueName);
+const selectOptions = Array.from(tournamants.values()).map((league) => league.leagueName);
 
 function Tournaments() {
 	const [selectIndex, setSelectIndex] = useState(0);
