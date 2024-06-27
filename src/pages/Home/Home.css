@@ -34,6 +34,9 @@
 .home__list__item {
 	margin-bottom: 0.5rem;
 }
+.home__list .home__list__item:last-child {
+	margin-bottom: 0;
+}
 
 /* Intro section */
 .home__section--intro {
@@ -53,7 +56,7 @@
 	text-align: center;
 }
 
-.home__intro__signup {
+.home__intro__button {
 	text-decoration: none;
 }
 
@@ -80,7 +83,6 @@
 
 /* Workflow section */
 .home__section--workflow {
-	background: var(--secondary-color);
 	overflow: hidden;
 	position: relative;
 }
@@ -164,6 +166,34 @@
 	top: 0;
 	left: -75%;
 	z-index: -1;
+}
+
+/* Rules section */
+.home__section--rules {
+	position: relative;
+}
+
+.home__highlight--exact {
+	color: var(--accent-color);
+}
+.home__highlight--result {
+	color: var(--warning-color);
+}
+.home__highlight--none {
+	color: var(--danger-color);
+}
+
+.home__rules__graphics__icon {
+	width: 8rem;
+	height: 8rem;
+	color: var(--accent-color);
+	background: var(--primary-color);
+	border-radius: var(--br-pill);
+	opacity: 0.3;
+	padding: 2rem;
+	position: absolute;
+	top: 30%;
+	right: 15%;
 }
 
 @media screen and (max-width: 992px) {

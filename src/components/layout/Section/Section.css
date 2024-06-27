@@ -1,5 +1,15 @@
 .section {
 	--py: 2rem;
 
+	background: var(--bg-color);
 	padding: var(--py) 1rem;
+}
+.section--primary {
+	--bg-color: var(--primary-color);
+}
+.section--secondary {
+	--bg-color: var(--secondary-color);
+}
+.section--accent {
+	--bg-color: var(--accent-color);
 }

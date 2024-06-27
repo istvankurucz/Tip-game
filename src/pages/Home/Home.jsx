@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../../components/ui/Button/Button";
-import "./Home.css";
 import {
+	faArrowTrendUp,
 	faChartLine,
 	faFutbol,
 	faPenToSquare,
@@ -13,8 +13,13 @@ import {
 import { Link } from "react-router-dom";
 import Section from "../../components/layout/Section/Section";
 import Page from "../../components/layout/Page/Page";
+import { useStateValue } from "../../contexts/context API/StateProvider";
+import Subtitle from "../../components/ui/Subtitle/Subtitle";
+import "./Home.css";
 
 function Home() {
+	const [{ user }] = useStateValue();
+
 	return (
 		<Page>
 			<Section py="3rem" id="homeIntro" className="home__section--intro">
@@ -30,19 +35,32 @@ function Home() {
 					Play with your friends, colleagues, family and everyone for the glory to become the
 					best tip player of the event!
 				</p>
+				{user == null && (
+					<p className="home__p">
+						You only have to <span className="home__highlight">create an account</span> and
+						you are ready to compete with others in the tournaments. <br />
+						You can also <span className="home__highlight">create private groups</span> to
+						compete directly with your friends in a custom rule system.
+					</p>
+				)}
 				<p className="home__p">
-					You only to <span className="home__highlight">create an account</span> and you are
-					ready to compete with others in this tournament. <br />
-					You can also <span className="home__highlight">create private groups</span> to
-					compete directly with your friends in a custom rule system.
+					Click on the button below to{" "}
+					{user ? "see everything you need to know." : "create an account!"}
 				</p>
-				<p className="home__p">Click on the button below to create an account!</p>
 
-				<Link to="/signup" className="home__intro__signup">
-					<Button centered tabIndex={-1}>
-						<FontAwesomeIcon icon={faUser} /> Create account
-					</Button>
-				</Link>
+				{user ? (
+					<Link to="/overview" className="home__intro__button">
+						<Button centered tabIndex={-1}>
+							<FontAwesomeIcon icon={faUser} /> Go to Overview
+						</Button>
+					</Link>
+				) : (
+					<Link to="/signup" className="home__intro__button">
+						<Button centered tabIndex={-1}>
+							<FontAwesomeIcon icon={faUser} /> Create account
+						</Button>
+					</Link>
+				)}
 
 				<div className="home__section__footballs">
 					<FontAwesomeIcon
@@ -60,10 +78,15 @@ function Home() {
 				</div>
 			</Section>
 
-			<Section py="3rem" id="homeWorkflow" className="home__section--workflow">
-				<h2 className="home__subtitle">
+			<Section
+				variant="secondary"
+				py="3rem"
+				id="homeWorkflow"
+				className="home__section--workflow"
+			>
+				<Subtitle>
 					Everything you need to know about <span className="home__brand">Tip game</span>!
-				</h2>
+				</Subtitle>
 
 				<p className="home__p">
 					Tip game is all about tipping. We made a really{" "}
@@ -103,9 +126,9 @@ function Home() {
 			</Section>
 
 			<Section py="3rem" id="homeUsage" className="home__section--usage">
-				<h2 className="home__subtitle">
+				<Subtitle>
 					How to use <span className="home__brand">Tip game</span>?
-				</h2>
+				</Subtitle>
 
 				<p className="home__p">
 					It is really easy to get started. Here are the steps to{" "}
@@ -149,6 +172,43 @@ function Home() {
 						icon={faRankingStar}
 						className="home__usage__graphics__icon home__usage__graphics__icon--rankings"
 					/>
+				</div>
+			</Section>
+
+			<Section
+				variant="secondary"
+				py="3rem"
+				id="homeGeneralRules"
+				className="home__section--rules"
+			>
+				<Subtitle>General rules</Subtitle>
+
+				<p className="home__p">
+					The overall ranking among all the players using Tip game competing with the following{" "}
+					<span className="home__highlight">rules</span>:
+				</p>
+
+				<ol className="home__list">
+					<li data-list-number="1." className="home__list__item">
+						Exact result:{" "}
+						<span className="home__highlight home__highlight--exact">+3 points</span>
+					</li>
+					<li data-list-number="2." className="home__list__item">
+						Result (home team/draw/away team):{" "}
+						<span className="home__highlight home__highlight--result">+1 point</span>
+					</li>
+					<li data-list-number="3." className="home__list__item">
+						None of the above:{" "}
+						<span className="home__highlight home__highlight--none">0 point</span>
+					</li>
+					<li data-list-number="+1" className="home__list__item">
+						You can tip for the winner of the tournament and the top goal scorer for more
+						points.
+					</li>
+				</ol>
+
+				<div className="home__rules__graphics">
+					<FontAwesomeIcon icon={faArrowTrendUp} className="home__rules__graphics__icon" />
 				</div>
 			</Section>
 		</Page>

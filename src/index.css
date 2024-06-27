@@ -22,6 +22,8 @@
 	--accent-color-hover-values: 120 60% 35%;
 	--text-color-400-values: 60 21% 18%;
 	--text-color-200-values: 109 9% 50%;
+	--warning-color-values: 40 100% 50%;
+	--warning-color-hover-values: 48 100% 40%;
 	--danger-color-values: 12 100% 45%;
 	--danger-color-hover-values: 12 100% 35%;
 	/* ------------------------------ */
@@ -35,6 +37,8 @@
 	--text-color-200: hsl(var(--text-color-200-values));
 	--text-color: var(--text-color-400);
 	--success-color: var(--accent-color);
+	--warning-color: hsl(var(--warning-color-values));
+	--warning-color-hover: hsl(var(--warning-color-hover-values));
 	--danger-color: hsl(var(--danger-color-values));
 	--danger-color-hover: hsl(var(--danger-color-hover-values));
 
