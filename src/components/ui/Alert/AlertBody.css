@@ -1,0 +1,4 @@
+.alertBody {
+	border-top: 0.1rem solid var(--border-color);
+	padding: 0.5rem;
+}

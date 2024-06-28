@@ -1,0 +1,15 @@
+.alertHeader {
+	display: flex;
+	gap: 1rem;
+	justify-content: space-between;
+	padding: 0.5rem;
+}
+
+.alertHeader__close {
+	width: 1.5rem;
+	height: 1.5rem;
+	flex-shrink: 0;
+	display: grid;
+	place-items: center;
+	padding: 0;
+}

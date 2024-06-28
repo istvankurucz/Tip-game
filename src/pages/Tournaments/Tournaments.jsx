@@ -10,11 +10,12 @@ import "./Tournaments.css";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useStateValue } from "../../contexts/context API/StateProvider";
+import SignInAlert from "../../components/ui/Alert/SignInAlert/SignInAlert";
 
 const selectOptions = Array.from(tournaments?.values()).map((tournament) => tournament.name);
 
 function Tournaments() {
-	const [{ user }, dispatch] = useStateValue();
+	const [{ user, userLoading }, dispatch] = useStateValue();
 	const [selectIndex, setSelectIndex] = useState(0);
 
 	// Function to change the activeTournament property of the user
@@ -56,6 +57,8 @@ function Tournaments() {
 		}
 	}
 
+	if (userLoading) return <h1>Loading...</h1>;
+
 	return (
 		<Page>
 			<Section id="tournamentsIntro">
@@ -68,22 +71,26 @@ function Tournaments() {
 				</p>
 			</Section>
 
-			<Section id="tournamentsSelect" className="tournaments__section--select">
-				<Subtitle>Select a tournament</Subtitle>
+			{!userLoading && user == null ? (
+				<SignInAlert />
+			) : (
+				<Section id="tournamentsSelect" className="tournaments__section--select">
+					<Subtitle>Select a tournament</Subtitle>
 
-				<form className="tournament__select__form" onSubmit={changeActiveTournament}>
-					<Select
-						width="300px"
-						label="Tournament"
-						id="tournamentsSelectInput"
-						options={selectOptions}
-						index={selectIndex}
-						setIndex={setSelectIndex}
-						className="tournament__select__form__input"
-					/>
-					<Button type="submit">Save</Button>
-				</form>
-			</Section>
+					<form className="tournament__select__form" onSubmit={changeActiveTournament}>
+						<Select
+							width="300px"
+							label="Tournament"
+							id="tournamentsSelectInput"
+							options={selectOptions}
+							index={selectIndex}
+							setIndex={setSelectIndex}
+							className="tournament__select__form__input"
+						/>
+						<Button type="submit">Save</Button>
+					</form>
+				</Section>
+			)}
 		</Page>
 	);
 }

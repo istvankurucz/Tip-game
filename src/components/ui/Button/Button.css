@@ -54,6 +54,12 @@
 	--bg-hover: var(--danger-color-hover);
 }
 
+.button--transparent {
+	--color: var(--text-color);
+	--bg-color: transparent;
+	--bg-hover: hsl(var(--text-color-400-values) / 0.2);
+}
+
 .button--link {
 	--color: var(--text-color);
 	--bg-color: var(--primary-color);

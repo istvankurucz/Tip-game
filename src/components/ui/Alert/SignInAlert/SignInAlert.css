@@ -1,0 +1,7 @@
+.signInAlert__link {
+	width: fit-content;
+	display: block;
+	text-decoration: none;
+	margin-inline: auto;
+	margin-top: 1rem;
+}

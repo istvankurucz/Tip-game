@@ -1,0 +1,43 @@
+/* General styles */
+.alert {
+	width: min(400px, 90%);
+	display: none;
+	color: var(--text-color);
+	background: var(--bg-color);
+	border-radius: var(--br);
+}
+.alert--show {
+	display: block;
+}
+
+/* Options */
+.alert--center {
+	margin-inline: auto;
+}
+
+/* Variants */
+.alert--primary {
+	--text-color: var(--text-color);
+	--bg-color: var(--primary-color);
+	--border-color: var(--secondary-color);
+
+	border: 0.1rem solid var(--border-color);
+}
+
+.alert--secondary {
+	--text-color: var(--text-color);
+	--bg-color: var(--secondary-color);
+	--border-color: hsl(var(--text-color-400-values) / 0.2);
+}
+
+.alert--accent {
+	--text-color: var(--primary-color);
+	--bg-color: var(--accent-color);
+	--border-color: hsl(var(--primary-color-values) / 0.3);
+}
+
+.alert--danger {
+	--text-color: var(--primary-color);
+	--bg-color: var(--danger-color);
+	--border-color: hsl(var(--primary-color-values) / 0.3);
+}

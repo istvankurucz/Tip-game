@@ -9,6 +9,11 @@ function useAuth() {
 
 	useEffect(() => {
 		const unsub = onAuthStateChanged(auth, async (user) => {
+			dispatch({
+				type: "SET_USER_LOADING",
+				userLoading: true,
+			});
+
 			// Fetch user data from DB
 			if (user != null) {
 				const userDb = await fetchUser(user.uid);
@@ -23,7 +28,12 @@ function useAuth() {
 			// Update Context API with the user
 			dispatch({
 				type: "SET_USER",
-				user: user,
+				user,
+			});
+
+			dispatch({
+				type: "SET_USER_LOADING",
+				userLoading: false,
 			});
 		});
 

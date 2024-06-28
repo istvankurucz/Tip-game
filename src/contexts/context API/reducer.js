@@ -1,5 +1,6 @@
 export const initialState = {
 	user: null,
+	userLoading: true,
 	feedback: {
 		show: false,
 		type: "",
@@ -14,6 +15,12 @@ export default function reducer(state, action) {
 			return {
 				...state,
 				user: action.user,
+			};
+
+		case "SET_USER_LOADING":
+			return {
+				...state,
+				userLoading: action.userLoading,
 			};
 
 		case "SET_FEEDBACK":

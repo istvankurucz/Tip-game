@@ -39,7 +39,7 @@ Button.displayName = "Button";
 
 Button.propTypes = {
 	type: PropTypes.string,
-	variant: PropTypes.oneOf(["primary", "secondary", "accent", "danger", "link"]),
+	variant: PropTypes.oneOf(["primary", "secondary", "accent", "danger", "transparent", "link"]),
 	outlined: PropTypes.bool,
 	rounded: PropTypes.bool,
 	icon: PropTypes.bool,
