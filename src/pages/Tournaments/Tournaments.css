@@ -13,5 +13,6 @@
 .tournament__select__form {
 	display: flex;
 	gap: 2rem;
+	flex-wrap: wrap;
 	align-items: flex-end;
 }

@@ -1,7 +1,12 @@
 .select {
-	width: 200px;
+	--width: 200px;
+
+	width: var(--width);
 	display: inline-block;
 	position: relative;
+}
+.select--full {
+	--width: 100%;
 }
 
 .select__label {
