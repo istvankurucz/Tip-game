@@ -1,14 +1,14 @@
+import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase";
+import { useStateValue } from "../../contexts/context API/StateProvider";
 import Auth from "../../components/layout/Auth/Auth";
 import Modal from "../../components/layout/Modal/Modal";
 import Button from "../../components/ui/Button/Button";
 import Input from "../../components/form/Input/Input";
 import TextLink from "../../components/ui/TextLink/TextLink";
 import "./SignIn.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../config/firebase";
-import { useStateValue } from "../../contexts/context API/StateProvider";
 
 function SignIn() {
 	const [, dispatch] = useStateValue();
@@ -117,17 +117,18 @@ function SignIn() {
 						/>
 
 						<Auth.Text>
-							Don&apos;t have an account? <TextLink to="/signup">Click here</TextLink> to
-							create one!
+							Don&apos;t have an account?{" "}
+							<TextLink to="/signup" replace>
+								Click here
+							</TextLink>{" "}
+							to create one!
 						</Auth.Text>
 					</Auth.Body>
 
 					<Modal.Footer>
-						<Link to="/">
-							<Button type="button" variant="secondary" tabIndex={-1}>
-								Cancel
-							</Button>
-						</Link>
+						<Button type="button" variant="secondary" onClick={() => navigate(-1)}>
+							Cancel
+						</Button>
 						<Button type="submit" variant="accent" ref={submitButtonRef}>
 							{loading ? "Loading..." : "Sign In"}
 						</Button>

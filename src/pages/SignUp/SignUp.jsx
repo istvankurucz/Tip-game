@@ -8,7 +8,7 @@ import "./SignUp.css";
 import { useRef, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../../config/firebase";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../../contexts/context API/StateProvider";
 import { doc, setDoc } from "firebase/firestore";
 import { defaultTournament } from "../../assets/tournaments/tournaments";
@@ -216,17 +216,18 @@ function SignUp() {
 						/>
 
 						<Auth.Text>
-							Already have an account? <TextLink to="/signin">Click here</TextLink> to sign
-							in!
+							Already have an account?{" "}
+							<TextLink to="/signin" replace>
+								Click here
+							</TextLink>{" "}
+							to sign in!
 						</Auth.Text>
 					</Auth.Body>
 
 					<Modal.Footer>
-						<Link to="/">
-							<Button type="button" variant="secondary" tabIndex={-1}>
-								Cancel
-							</Button>
-						</Link>
+						<Button type="button" variant="secondary" onClick={() => navigate(-1)}>
+							Cancel
+						</Button>
 						<Button type="submit" variant="accent" ref={submitButtonRef}>
 							{loading ? "Loading..." : "Sign Up"}
 						</Button>

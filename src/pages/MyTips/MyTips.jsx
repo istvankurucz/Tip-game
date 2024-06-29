@@ -1,22 +1,17 @@
 import Page from "../../components/layout/Page/Page";
-import Section from "../../components/layout/Section/Section";
-import PageTitle from "../../components/ui/PageTitle/PageTitle";
-import SelectedTournament from "../../components/ui/SelectedTournament/SelectedTournament";
-import useMatches from "../../hooks/useMatches";
+// import useMatches from "../../hooks/useMatches";
 import "./MyTips.css";
 
 function MyTips() {
-	const { matches } = useMatches();
+	// const { matches } = useMatches();
 
-	console.log(matches);
+	// console.log(matches);
 
 	return (
-		<Page>
-			<Section id="myTipsIntro">
-				<PageTitle>My tips</PageTitle>
+		<Page hasUserLoading>
+			<Page.Title>My tips</Page.Title>
 
-				<SelectedTournament />
-			</Section>
+			<Page.Body userNeeded>My tips</Page.Body>
 		</Page>
 	);
 }

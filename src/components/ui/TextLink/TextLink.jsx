@@ -2,17 +2,22 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./TextLink.css";
 
-function TextLink({ to, className, children }) {
+function TextLink({ to, replace, className, children }) {
 	return (
-		<Link to={to} className={`textLink${className ? ` ${className}` : ""}`}>
+		<Link
+			to={to}
+			replace={replace ?? false}
+			className={`textLink${className ? ` ${className}` : ""}`}
+		>
 			{children}
 		</Link>
 	);
 }
 
 TextLink.propTypes = {
-	className: PropTypes.string,
 	to: PropTypes.string,
+	replace: PropTypes.bool,
+	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
 

@@ -1,4 +1,5 @@
 .pageTitle {
 	font-size: var(--fs-title);
 	text-align: center;
+	padding-block: 1rem;
 }

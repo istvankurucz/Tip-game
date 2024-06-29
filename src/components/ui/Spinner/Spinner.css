@@ -1,0 +1,85 @@
+.spinner {
+	--size: 3rem;
+
+	width: var(--size);
+	height: var(--size);
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+}
+.spinner--centered {
+	margin-inline: auto;
+}
+
+@keyframes spin {
+	from {
+		rotate: 0deg;
+	}
+	to {
+		rotate: -360deg;
+	}
+}
+
+.spinner__circles {
+	flex-shrink: 0;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	animation: spin 2s linear infinite;
+}
+
+.spinner__circle {
+	--r: calc(var(--size) / 2);
+	--deg: 0deg;
+	--animation-delay: 0s;
+
+	width: calc(var(--size) / 3);
+	height: calc(var(--size) / 3);
+	display: inline-block;
+	background: var(--accent-color);
+	border-radius: var(--br-pill);
+	position: absolute;
+	top: calc(var(--r) * (1 - cos(var(--deg))));
+	left: calc(var(--r) * (1 - sin(var(--deg))));
+	translate: -50% -50%;
+	animation: pulse 500ms ease infinite alternate;
+	animation-delay: var(--animation-delay);
+}
+.spinner__circle:nth-child(1) {
+	--deg: 0deg;
+	--animation-delay: 0s;
+}
+.spinner__circle:nth-child(2) {
+	--deg: 60deg;
+	--animation-delay: 100ms;
+}
+.spinner__circle:nth-child(3) {
+	--deg: 120deg;
+	--animation-delay: 200ms;
+}
+.spinner__circle:nth-child(4) {
+	--deg: 180deg;
+	--animation-delay: 300ms;
+}
+.spinner__circle:nth-child(5) {
+	--deg: 240deg;
+	--animation-delay: 400ms;
+}
+.spinner__circle:nth-child(6) {
+	--deg: 300deg;
+	--animation-delay: 500ms;
+}
+
+@keyframes pulse {
+	from {
+		scale: 0.6;
+	}
+	to {
+		scale: 1;
+	}
+}
+
+.spinner__text {
+	text-align: center;
+}

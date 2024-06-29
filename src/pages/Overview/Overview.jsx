@@ -1,17 +1,12 @@
-import PageTitle from "../../components/ui/PageTitle/PageTitle";
-import Section from "../../components/layout/Section/Section";
-import "./Overview.css";
 import Page from "../../components/layout/Page/Page";
-import SelectedTournament from "../../components/ui/SelectedTournament/SelectedTournament";
+import "./Overview.css";
 
 function Overview() {
 	return (
-		<Page>
-			<Section id="overviewIntro">
-				<PageTitle className="overview__title">Overview</PageTitle>
+		<Page hasUserLoading>
+			<Page.Title className="overview__title">Overview</Page.Title>
 
-				<SelectedTournament />
-			</Section>
+			<Page.Body userNeeded>overview</Page.Body>
 		</Page>
 	);
 }

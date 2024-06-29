@@ -1,6 +1,5 @@
 import Select from "../../components/form/Select/Select";
 import Section from "../../components/layout/Section/Section";
-import PageTitle from "../../components/ui/PageTitle/PageTitle";
 import Subtitle from "../../components/ui/Subtitle/Subtitle";
 import { tournaments } from "../../assets/tournaments/tournaments";
 import { useState } from "react";
@@ -10,12 +9,11 @@ import "./Tournaments.css";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useStateValue } from "../../contexts/context API/StateProvider";
-import SignInAlert from "../../components/ui/Alert/SignInAlert/SignInAlert";
 
 const selectOptions = Array.from(tournaments?.values()).map((tournament) => tournament.name);
 
 function Tournaments() {
-	const [{ user, userLoading }, dispatch] = useStateValue();
+	const [{ user }, dispatch] = useStateValue();
 	const [selectIndex, setSelectIndex] = useState(0);
 
 	// Function to change the activeTournament property of the user
@@ -57,23 +55,19 @@ function Tournaments() {
 		}
 	}
 
-	if (userLoading) return <h1>Loading...</h1>;
-
 	return (
-		<Page>
-			<Section id="tournamentsIntro">
-				<PageTitle className="tournaments__title">Tournaments</PageTitle>
+		<Page hasUserLoading>
+			<Page.Title className="tournaments__title">Tournaments</Page.Title>
 
-				<p className="tournaments__p">
-					Here you can find all of the tournaments you can compete in.
-					<br />
-					Just use the dropdown below to choose one.
-				</p>
-			</Section>
+			<Page.Body userNeeded>
+				<Section id="tournamentsIntro">
+					<p className="tournaments__p">
+						Here you can find all of the tournaments you can compete in.
+						<br />
+						Just use the dropdown below to choose one.
+					</p>
+				</Section>
 
-			{!userLoading && user == null ? (
-				<SignInAlert />
-			) : (
 				<Section id="tournamentsSelect" className="tournaments__section--select">
 					<Subtitle>Select a tournament</Subtitle>
 
@@ -90,7 +84,7 @@ function Tournaments() {
 						<Button type="submit">Save</Button>
 					</form>
 				</Section>
-			)}
+			</Page.Body>
 		</Page>
 	);
 }
