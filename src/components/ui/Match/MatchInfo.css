@@ -1,0 +1,37 @@
+.matchInfo__modal__title {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.matchInfo__title__flag {
+	width: 1.6rem;
+	height: 1.6rem;
+	margin-left: 0.5rem;
+}
+
+.matchInfo__title {
+	margin-bottom: 0.5rem;
+}
+
+.matchInfo__list {
+	list-style: none;
+}
+.matchInfo__list--location {
+	margin-bottom: 1.5rem;
+}
+
+.matchInfo__list .matchInfo__list__item:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+
+.matchInfo__location__icon {
+	display: inline-block;
+	width: 2rem;
+	text-align: center;
+	color: var(--accent-color);
+}
+
+.matchInfo__location__value {
+	font-weight: 500;
+}

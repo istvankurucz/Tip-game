@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes, { object, string } from "prop-types";
 import ModalHeader from "./ModalHeader";
 import ModalBody from "./ModalBody";
 import ModalFooter from "./ModalFooter";
@@ -16,7 +16,7 @@ function Modal({ setShow, title, className, children }) {
 
 Modal.propTypes = {
 	setShow: PropTypes.func,
-	title: PropTypes.string,
+	title: PropTypes.oneOfType([string, object]),
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };

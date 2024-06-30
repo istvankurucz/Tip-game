@@ -82,4 +82,5 @@
 
 .spinner__text {
 	text-align: center;
+	text-wrap: nowrap;
 }

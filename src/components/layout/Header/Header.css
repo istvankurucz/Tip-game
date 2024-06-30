@@ -1,4 +1,5 @@
 .header {
+	height: var(--header-height);
 	background: var(--primary-color);
 	box-shadow: 0 0 0.3rem 1px var(--secondary-color);
 	padding: 0.5rem 1rem;
@@ -111,6 +112,9 @@
 }
 
 .header__menu__hamburger {
+	width: 2rem;
+	height: 2rem;
+	padding: 0.5rem;
 	display: none;
 }
 
@@ -123,8 +127,9 @@
 		width: 100%;
 		flex-direction: column;
 		gap: 0;
+		border-top: 1px solid var(--secondary-color);
 		position: absolute;
-		top: 3.5rem;
+		top: 3rem;
 		left: 0;
 	}
 

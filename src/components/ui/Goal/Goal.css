@@ -1,0 +1,39 @@
+.goal {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	font-size: var(--fs-small);
+}
+.goal--team2 {
+	flex-direction: row-reverse;
+}
+
+.goal__minute {
+	display: inline-block;
+	width: 1.5rem;
+}
+.goal--team2 .goal__minute {
+	text-align: right;
+}
+
+.goal__score {
+	display: flex;
+	gap: 0.5rem;
+	font-weight: 500;
+	align-items: center;
+	border: 0.1rem solid var(--secondary-color);
+	border-radius: var(--br);
+	padding: 0.3rem;
+}
+
+.goal__score__icon {
+	color: var(--accent-color);
+}
+.goal__score__icon--ownGoal {
+	color: var(--danger-color);
+}
+
+.goal__info {
+	font-size: 0.7rem;
+	font-weight: 300;
+}

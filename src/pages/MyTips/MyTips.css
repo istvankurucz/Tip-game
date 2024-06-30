@@ -1,0 +1,11 @@
+.myTips__table__divider {
+	width: 80%;
+	height: 0.1rem;
+	background: var(--secondary-color);
+	border: none;
+	margin: 0.5rem auto;
+}
+
+.myTips__table__upcoming__save {
+	margin-top: 2rem;
+}

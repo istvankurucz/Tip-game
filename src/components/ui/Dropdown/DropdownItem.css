@@ -1,0 +1,9 @@
+.dropdownItem {
+	text-wrap: nowrap;
+	padding: 0.25rem 1rem;
+	cursor: pointer;
+	transition: background-color 200ms ease;
+}
+.dropdownItem:hover {
+	background: var(--secondary-color);
+}
