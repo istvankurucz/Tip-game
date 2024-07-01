@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import { teams } from "../../assets/teams/teamsEuro2024";
 
 export default function getMatchData(match) {

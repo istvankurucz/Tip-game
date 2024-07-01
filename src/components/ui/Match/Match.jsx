@@ -107,7 +107,7 @@ function Match({ id, team1, team2, time, tip, result, finished, onInfoClick, cla
 					<span title="Your tip" className="match__points__tip">
 						{tip != null ? (
 							<>
-								{tip?.team1Score}-{tip?.team2Score}
+								{team1Tip}-{team2Tip}
 							</>
 						) : (
 							"No tip"

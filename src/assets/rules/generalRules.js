@@ -15,4 +15,9 @@ export const generalRules = {
 		points: 3,
 		colorVariant: "success",
 	},
+	// the user hit nothing
+	nothing: {
+		points: 0,
+		colorVariant: "danger",
+	},
 };

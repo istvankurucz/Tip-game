@@ -17,10 +17,7 @@ function isExactResult(tip, result) {
 	return tip.team1Score === result.team1Score && tip.team2Score === result.team2Score;
 }
 
-export default function calcPoints(tip, result, rules) {
-	// Check if a custom ruleset was given
-	if (rules == null) rules = generalRules;
-
+export default function calcPoints(tip, result, rules = generalRules) {
 	// If the user didn't make a tip
 	if (tip == null) return rules.noTip;
 
@@ -29,4 +26,7 @@ export default function calcPoints(tip, result, rules) {
 
 	// If the user hit the winner
 	if (isSameResult(tip, result)) return rules.result;
+
+	// If the user hit nothing
+	return rules.nothing;
 }

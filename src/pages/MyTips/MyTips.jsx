@@ -11,10 +11,10 @@ import Spinner from "../../components/ui/Spinner/Spinner";
 import Button from "../../components/ui/Button/Button";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import "./MyTips.css";
 import { useStateValue } from "../../contexts/context API/StateProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import "./MyTips.css";
 
 function MyTips() {
 	const [{ user }, dispatch] = useStateValue();
@@ -31,6 +31,12 @@ function MyTips() {
 
 	// Function to show the modal for match information
 	function showMatchInfoModal(match) {
+		// Add the teams to the info object
+		match.info.teams = {
+			team1: match.team1,
+			team2: match.team2,
+		};
+
 		// Remove goals that didn't count
 		match.info.goals = match.info.goals.filter((goal) => goal.goalGetterID !== 0);
 
@@ -178,15 +184,17 @@ function MyTips() {
 						)}
 					</div>
 
-					<Button
-						centered
-						className="myTips__table__upcoming__save"
-						onClick={saveTips}
-						ref={saveButtonRef}
-					>
-						<FontAwesomeIcon icon={faCheck} />
-						{saveLoading ? "Loading..." : "Save"}
-					</Button>
+					{!loading && (
+						<Button
+							centered
+							className="myTips__table__upcoming__save"
+							onClick={saveTips}
+							ref={saveButtonRef}
+						>
+							<FontAwesomeIcon icon={faCheck} />
+							{saveLoading ? "Loading..." : "Save"}
+						</Button>
+					)}
 				</Section>
 
 				<Section id="myTipsPrevious">
@@ -207,7 +215,7 @@ function MyTips() {
 										time={match.time}
 										team1={match.team1}
 										team2={match.team2}
-										tip={null}
+										tip={match.tip}
 										result={match.result}
 										finished={match.finished}
 										onInfoClick={() => showMatchInfoModal(match)}

@@ -9,7 +9,7 @@ import useGoalScorers from "../../../hooks/useGoalScorers";
 import "./MatchInfo.css";
 import { useMemo } from "react";
 
-function MatchInfo({ show, setShow, flags, data }) {
+function MatchInfo({ show, setShow, data }) {
 	const goalScorersIds = useMemo(() => {
 		if (data && data?.goals) {
 			const scorerIds = data.goals.map((goal) => goal.goalGetterID);
@@ -23,11 +23,12 @@ function MatchInfo({ show, setShow, flags, data }) {
 		<span className="matchInfo__modal__title">
 			Match info
 			<div className="matchInfo__title__flags">
-				<img src={flags.team1} className="matchInfo__title__flag" />
-				<img src={flags.team2} className="matchInfo__title__flag" />
+				<img src={data?.teams.team1.iconUrl} className="matchInfo__title__flag" />
+				<img src={data?.teams.team2.iconUrl} className="matchInfo__title__flag" />
 			</div>
 		</span>
 	);
+
 	return (
 		<Overlay show={show} className="matchInfo">
 			<Modal title={modalTitle} setShow={setShow}>

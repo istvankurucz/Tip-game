@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import { useEffect, useState } from "react";
 import useActiveTournament from "./useActiveTournament";
 import { axios } from "../config/axios";
@@ -42,8 +43,12 @@ function useMatches() {
 							matchTip == undefined
 								? null
 								: {
-										team1Score: matchTip.data().team1Score,
-										team2Score: matchTip.data().team2Score,
+										team1Score: isNaN(matchTip.data().team1Score)
+											? ""
+											: matchTip.data().team1Score,
+										team2Score: isNaN(matchTip.data().team2Score)
+											? ""
+											: matchTip.data().team2Score,
 								  },
 					};
 				});
