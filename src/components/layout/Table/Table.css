@@ -1,0 +1,31 @@
+.table {
+	border-collapse: collapse;
+}
+
+.table--sortable th {
+	user-select: none;
+	cursor: pointer;
+}
+
+.table--sortable th svg {
+	opacity: 0.3;
+	margin-left: 1rem;
+	transition: color 200ms ease, opacity 200ms ease;
+}
+.table--sortable th:hover svg {
+	color: var(--accent-color);
+	opacity: 1;
+}
+
+.table tr:not(:first-child) {
+	border-top: 1px solid var(--secondary-color);
+}
+
+.table th,
+.table td {
+	padding: 0.25rem 0.5rem;
+}
+.table tr th:not(:last-child),
+.table tr td:not(:last-child) {
+	border-right: 1px solid var(--secondary-color);
+}

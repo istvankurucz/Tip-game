@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router-dom";
+import useAuth from "./hooks/useAuth";
 import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
-import useAuth from "./hooks/useAuth";
 import Overview from "./pages/Overview/Overview";
 import Feedback from "./components/ui/Feedback/Feedback";
 import Tournaments from "./pages/Tournaments/Tournaments";
-import "./App.css";
 import MyTips from "./pages/MyTips/MyTips";
+import MyTeams from "./pages/MyTeams/MyTeams";
+import Team from "./pages/Team/Team";
+import "./App.css";
 
 function App() {
 	// Hook to handle authentication
@@ -23,7 +25,11 @@ function App() {
 
 				<Route path="/overview" element={<Overview />} />
 				<Route path="/mytips" element={<MyTips />} />
+
 				<Route path="/tournaments" element={<Tournaments />} />
+				<Route path="/myteams" element={<MyTeams />} />
+				<Route path="/teams/:teamId" element={<Team />} />
+
 				<Route path="/" element={<Home />} />
 
 				<Route path="*" element={<h1>404, Page not found.</h1>} />

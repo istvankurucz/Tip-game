@@ -85,7 +85,7 @@ function Header() {
 												<hr className="header__submenu__divider" />
 
 												<li className="header__submenu__item">
-													<Link to="/">
+													<Link to="/myteams">
 														<FontAwesomeIcon icon={faUsers} /> My teams
 													</Link>
 												</li>

@@ -1,0 +1,13 @@
+.createTeamModal__form__title {
+	margin-top: 1.5rem;
+	margin-bottom: 0.25rem;
+}
+
+.createTeamModal__form__info {
+	font-size: var(--fs-small);
+	margin-left: 1.5rem;
+}
+
+.createTeamModal__form__info li:not(:last-child) {
+	margin-bottom: 0.25rem;
+}
