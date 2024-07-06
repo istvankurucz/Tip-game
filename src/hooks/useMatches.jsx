@@ -7,6 +7,16 @@ import { useStateValue } from "../contexts/context API/StateProvider";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
 
+// Function to decide if the stored tip is valid
+function getTipFromDbData(tip) {
+	// If there is no tip for this match
+	if (tip == undefined) return null;
+	// If the user didn't filled the inputs for goals
+	if (isNaN(tip.data().team1Score) || isNaN(tip.data().team2Score)) return null;
+	// Ok
+	return { team1Score: tip.data().team1Score, team2Score: tip.data().team2Score };
+}
+
 function useMatches() {
 	const [{ user }] = useStateValue();
 	const tournament = useActiveTournament();
@@ -14,8 +24,6 @@ function useMatches() {
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-		if (!tournament || !user) return;
-
 		async function fetchMacthes() {
 			setLoading(true);
 			try {
@@ -39,17 +47,7 @@ function useMatches() {
 
 					return {
 						...match,
-						tip:
-							matchTip == undefined
-								? null
-								: {
-										team1Score: isNaN(matchTip.data().team1Score)
-											? ""
-											: matchTip.data().team1Score,
-										team2Score: isNaN(matchTip.data().team2Score)
-											? ""
-											: matchTip.data().team2Score,
-								  },
+						tip: getTipFromDbData(matchTip),
 					};
 				});
 
@@ -60,6 +58,8 @@ function useMatches() {
 				setLoading(false);
 			}
 		}
+
+		if (!tournament || !user) return;
 
 		fetchMacthes();
 	}, [tournament, user]);

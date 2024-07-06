@@ -1,5 +1,10 @@
 // Object that describes how many points should be give for every tip-result combination
 export const generalRules = {
+	// the result is not available yet
+	noResult: {
+		points: 0,
+		colorVariant: "danger",
+	},
 	// the user didn't make a tip
 	noTip: {
 		points: 0,

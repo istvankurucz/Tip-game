@@ -10,6 +10,7 @@ import { addDoc, collection, doc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { generalRules } from "../../assets/rules/generalRules";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 function CreateTeamModal({ show, setShow }) {
 	const [{ user }] = useStateValue();
@@ -43,7 +44,8 @@ function CreateTeamModal({ show, setShow }) {
 				name: teamName,
 				rules: generalRules,
 				members: [doc(db, "users", user.uid)],
-				roles: [{ user: doc(db, "users", user.uid), role: "admin" }],
+				roles: [{ member: doc(db, "users", user.uid), role: "admin" }],
+				joinCode: uuidv4().split("-")[0],
 			});
 
 			// Reset submit button

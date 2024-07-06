@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import Input from "../../form/Input/Input";
 import { useState } from "react";
-import calcPoints from "../../../utils/match/calcPoints";
 import Button from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faInfo, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import MatchInfo from "./MatchInfo";
 import Dropdown from "../Dropdown/Dropdown";
 import "./Match.css";
+import calcMatchPoints from "../../../utils/match/calcMatchPoints";
 
 function Match({ id, team1, team2, time, tip, result, finished, onInfoClick, className }) {
 	const [team1Tip, setTeam1Tip] = useState(tip?.team1Score ?? "");
@@ -23,7 +23,7 @@ function Match({ id, team1, team2, time, tip, result, finished, onInfoClick, cla
 	const isLiveMatch = matchStarted && !finished;
 
 	// Get points based on the tip and the result
-	const { points, colorVariant } = result ? calcPoints(tip, result) : "?";
+	const { points, colorVariant } = result ? calcMatchPoints(tip, result) : "?";
 
 	// Function to close the dropdown
 	function hideDropdown() {

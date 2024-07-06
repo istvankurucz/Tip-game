@@ -26,7 +26,7 @@
 }
 
 /* Teams list table */
-.myTeams__table--teams tr th:last-child,
+/* .myTeams__table--teams tr th:last-child,
 .myTeams__table--teams tr td:last-child {
 	width: 140px;
 	text-align: center;
@@ -39,4 +39,4 @@
 	text-overflow: ellipsis;
 	overflow: hidden;
 	color: var(--accent-color);
-}
+} */

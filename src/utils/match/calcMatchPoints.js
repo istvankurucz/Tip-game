@@ -17,7 +17,10 @@ function isExactResult(tip, result) {
 	return tip.team1Score === result.team1Score && tip.team2Score === result.team2Score;
 }
 
-export default function calcPoints(tip, result, rules = generalRules) {
+export default function calcMatchPoints(tip, result, rules = generalRules) {
+	// If the result is not available
+	if (result == null) return rules.noResult;
+
 	// If the user didn't make a tip
 	if (tip == null) return rules.noTip;
 

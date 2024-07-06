@@ -1,12 +1,18 @@
 .overlay {
-	display: none;
+	display: grid;
 	place-items: center;
 	background: hsl(0 0% 0% / 0.6);
 	backdrop-filter: blur(0.15rem);
+	overflow: hidden;
 	position: fixed;
 	inset: 0;
+	bottom: 100%;
 	z-index: 20;
+	translate: 0 -2rem;
+	transition: translate 200ms ease;
 }
 .overlay--show {
 	display: grid;
+	bottom: 0;
+	translate: 0 0;
 }
