@@ -10,10 +10,11 @@ import { useRef, useState } from "react";
 import { useStateValue } from "../../contexts/context API/StateProvider";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
+import TeamAdminAlert from "../../components/ui/Alert/TeamAdminAlert/TeamAdminAlert";
 
 function TeamRules() {
 	const [, dispatch] = useStateValue();
-	const { team } = useTeamContext();
+	const { team, isAdmin } = useTeamContext();
 
 	// Refs for the inputs
 	const resultPointsRef = useRef();
@@ -111,6 +112,11 @@ function TeamRules() {
 		}
 	}
 
+	// Return an alert if the user is not the admin of the team
+	if (!isAdmin) {
+		return <TeamAdminAlert />;
+	}
+
 	return (
 		<div className="teamRules">
 			<Subtitle>Basic rules</Subtitle>
@@ -161,11 +167,6 @@ function TeamRules() {
 							ref={noTipPointsRef}
 						/>
 					</div>
-
-					<Button centered onClick={savePoints}>
-						<FontAwesomeIcon icon={faCheck} />
-						Save
-					</Button>
 				</div>
 
 				<div className="teamRules__section__info">
@@ -214,10 +215,6 @@ function TeamRules() {
 									ref={goalDifferencePointsRef}
 								/>
 							</div>
-							<Button centered onClick={savePoints}>
-								<FontAwesomeIcon icon={faCheck} />
-								Save
-							</Button>
 						</>
 					)}
 				</div>
@@ -230,6 +227,11 @@ function TeamRules() {
 					</p>
 				</div>
 			</section>
+
+			<Button centered className="teamRules__save" onClick={savePoints}>
+				<FontAwesomeIcon icon={faCheck} />
+				Save
+			</Button>
 		</div>
 	);
 }

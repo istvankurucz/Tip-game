@@ -70,6 +70,7 @@ function SignUp() {
 	async function createUserDb(user) {
 		const userRef = doc(db, "users", user.uid);
 		await setDoc(userRef, {
+			name: user.displayName,
 			activeTournament: defaultTournament[0],
 		});
 

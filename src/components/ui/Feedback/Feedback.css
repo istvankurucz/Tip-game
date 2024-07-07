@@ -6,6 +6,10 @@
 	--text-color: var(--primary-color);
 	--bg-color: var(--danger-color);
 }
+.feedback--info {
+	--text-color: var(--primary-color);
+	--bg-color: var(--text-color-400);
+}
 .feedback {
 	width: min(400px, 90%);
 	color: var(--text-color);

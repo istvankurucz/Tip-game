@@ -6,6 +6,7 @@ import TeamSidebar from "./TeamSidebar";
 import Container from "../../components/layout/Container/Container";
 import TeamRules from "./TeamRules";
 import { useTeamContext } from "../../contexts/TeamContext";
+import TeamSettings from "./TeamSettings";
 
 function Team() {
 	const { team, loading } = useTeamContext();
@@ -33,5 +34,6 @@ function Team() {
 Team.Sidebar = TeamSidebar;
 Team.Ranking = TeamRanking;
 Team.Rules = TeamRules;
+Team.Settings = TeamSettings;
 
 export default Team;

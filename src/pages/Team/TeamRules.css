@@ -40,4 +40,6 @@
 	margin-bottom: 0;
 }
 
-/* Basic section */
+.teamRules__save {
+	margin-top: -1rem;
+}

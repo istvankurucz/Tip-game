@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import "./TeamSidebar.css";
+import { useTeamContext } from "../../contexts/TeamContext";
 
 function TeamSidebar() {
+	const { isAdmin } = useTeamContext();
 	const location = useLocation();
 
 	return (
@@ -17,13 +19,28 @@ function TeamSidebar() {
 					>
 						<Link to="./ranking">Ranking</Link>
 					</li>
-					<li
-						className={`teamSidebar__menu__item${
-							location.pathname.includes("rules") ? " teamSidebar__menu__item--active" : ""
-						}`}
-					>
-						<Link to="./rules">Rules</Link>
-					</li>
+					{isAdmin && (
+						<li
+							className={`teamSidebar__menu__item${
+								location.pathname.includes("rules")
+									? " teamSidebar__menu__item--active"
+									: ""
+							}`}
+						>
+							<Link to="./matches">Matches</Link>
+						</li>
+					)}
+					{isAdmin && (
+						<li
+							className={`teamSidebar__menu__item${
+								location.pathname.includes("rules")
+									? " teamSidebar__menu__item--active"
+									: ""
+							}`}
+						>
+							<Link to="./rules">Rules</Link>
+						</li>
+					)}
 					<li
 						className={`teamSidebar__menu__item${
 							location.pathname.includes("settings")
@@ -31,7 +48,7 @@ function TeamSidebar() {
 								: ""
 						}`}
 					>
-						<Link to="./settigns">Settings</Link>
+						<Link to="./settings">Settings</Link>
 					</li>
 				</ul>
 			</nav>

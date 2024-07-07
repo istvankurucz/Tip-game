@@ -44,7 +44,7 @@ function Feedback({ time = 10, className }) {
 	}, [closeFeedback, feedback.show, time]);
 
 	const closeButtonVariant =
-		feedback.type === "success" ? "accent" : feedback.type === "error" ? "danger" : "primary";
+		feedback.type === "success" ? "accent" : feedback.type === "error" ? "danger" : "transparent";
 
 	return (
 		<div

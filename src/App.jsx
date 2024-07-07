@@ -39,6 +39,7 @@ function App() {
 				>
 					<Route index path="ranking" element={<Team.Ranking />} />
 					<Route path="rules" element={<Team.Rules />} />
+					<Route path="settings" element={<Team.Settings />} />
 				</Route>
 
 				<Route path="/" element={<Home />} />

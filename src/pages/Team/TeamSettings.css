@@ -1,0 +1,27 @@
+/* General styles */
+.teamSettings__section {
+	padding: 0;
+	margin-bottom: 3rem;
+}
+.teamSettings__section:last-child {
+	margin-bottom: 0;
+}
+
+.teamSettings__p {
+	margin-bottom: 1rem;
+}
+
+/* Join code section */
+.teamSettings__code {
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+	margin-top: 1rem;
+}
+
+/* Admin section */
+.teamSettings__admin {
+	display: flex;
+	gap: 2rem;
+	align-items: flex-end;
+}
