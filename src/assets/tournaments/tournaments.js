@@ -1,9 +1,9 @@
 export const tournaments = new Map([
 	[
-		4694,
+		4708,
 		{
 			name: "European Chamionship 2024",
-			shortcut: "em2024",
+			shortcut: "em",
 			season: "2024",
 		},
 	],

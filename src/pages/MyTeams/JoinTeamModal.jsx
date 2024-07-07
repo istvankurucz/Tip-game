@@ -70,7 +70,7 @@ function JoinTeamModal({ show, setShow }) {
 
 			// Navigate to the new team's page
 			setShow(false);
-			navigate(`/teams/${team.id}`);
+			navigate(`/teams/${team.id}/ranking`);
 
 			resetSubmitButton();
 		} catch (e) {

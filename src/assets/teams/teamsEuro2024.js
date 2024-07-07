@@ -14,7 +14,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		2673,
+		5587,
 		{
 			name: "Belgium",
 			shortName: "BEL",
@@ -32,7 +32,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		139,
+		3196,
 		{
 			name: "Germany",
 			shortName: "GER",
@@ -41,7 +41,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		755,
+		3197,
 		{
 			name: "England",
 			shortName: "ENG",
@@ -68,7 +68,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		145,
+		3203,
 		{
 			name: "Italy",
 			shortName: "ITA",
@@ -86,7 +86,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		147,
+		4353,
 		{
 			name: "Netherlands",
 			shortName: "NED",
@@ -95,7 +95,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		37,
+		4354,
 		{
 			name: "Austria",
 			shortName: "AUT",
@@ -113,7 +113,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		149,
+		3198,
 		{
 			name: "Portugal",
 			shortName: "POR",
@@ -122,7 +122,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		143,
+		6171,
 		{
 			name: "Romania",
 			shortName: "ROU",
@@ -149,7 +149,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		1404,
+		5592,
 		{
 			name: "Serbia",
 			shortName: "SRB",
@@ -158,7 +158,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		763,
+		3201,
 		{
 			name: "Slovakia",
 			shortName: "SVK",
@@ -167,7 +167,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		848,
+		6170,
 		{
 			name: "Slovenia",
 			shortName: "SLO",
@@ -194,7 +194,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		153,
+		3205,
 		{
 			name: "Turkey",
 			shortName: "TUR",
@@ -212,7 +212,7 @@ export const teams = new Map([
 		},
 	],
 	[
-		1395,
+		6167,
 		{
 			name: "Hungary",
 			shortName: "HUN",

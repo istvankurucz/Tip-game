@@ -1,0 +1,30 @@
+.teamSidebar {
+	align-self: flex-start;
+	background: var(--primary-color);
+	padding: 1rem 4rem 1rem 2rem;
+	position: sticky;
+	top: calc(var(--header-height) + 1rem);
+}
+
+.teamSidebar__title {
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+
+.teamSidebar__menu {
+	list-style: none;
+}
+
+.teamSidebar__menu__item:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+.teamSidebar__menu__item a {
+	text-decoration: none;
+	color: inherit;
+	transition: color 200ms ease;
+}
+.teamSidebar__menu__item a:hover,
+.teamSidebar__menu__item--active {
+	color: var(--accent-color);
+}

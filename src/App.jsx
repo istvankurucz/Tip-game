@@ -10,6 +10,7 @@ import MyTips from "./pages/MyTips/MyTips";
 import MyTeams from "./pages/MyTeams/MyTeams";
 import Team from "./pages/Team/Team";
 import "./App.css";
+import TeamProvider from "./contexts/TeamContext";
 
 function App() {
 	// Hook to handle authentication
@@ -28,7 +29,17 @@ function App() {
 
 				<Route path="/tournaments" element={<Tournaments />} />
 				<Route path="/myteams" element={<MyTeams />} />
-				<Route path="/teams/:teamId" element={<Team />} />
+				<Route
+					path="/teams/:teamId"
+					element={
+						<TeamProvider>
+							<Team />
+						</TeamProvider>
+					}
+				>
+					<Route index path="ranking" element={<Team.Ranking />} />
+					<Route path="rules" element={<Team.Rules />} />
+				</Route>
 
 				<Route path="/" element={<Home />} />
 

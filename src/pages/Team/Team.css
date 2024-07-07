@@ -1,0 +1,10 @@
+.team__body {
+	display: flex;
+	margin-top: 2rem;
+}
+
+.team__main {
+	border-left: 0.1rem solid hsl(var(--accent-color-values) / 0.3);
+	padding-left: 3rem;
+	padding-bottom: 1rem;
+}

@@ -127,7 +127,9 @@ function MyTeams() {
 											return (
 												<tr key={team.id}>
 													<td>
-														<TextLink to={`/teams/${team.id}`}>{team.name}</TextLink>
+														<TextLink to={`/teams/${team.id}/ranking`}>
+															{team.name}
+														</TextLink>
 													</td>
 													<td>{team.members.length}</td>
 													{/* <td>#</td> */}

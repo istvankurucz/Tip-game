@@ -1,0 +1,43 @@
+/* General styles */
+.teamRules__section {
+	display: flex;
+	gap: 3rem;
+	margin-bottom: 3rem;
+}
+.teamRules__section:last-child {
+	margin-bottom: 0;
+}
+
+.teamRules__section__inputs {
+	width: 13rem;
+	flex-shrink: 0;
+}
+
+.teamRules__row {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.teamRules__row__text {
+	width: 9rem;
+}
+
+.teamRules__row__input {
+	width: 3.5rem;
+}
+
+.teamRules__row__input input {
+	text-align: center;
+}
+
+.teamRules__p {
+	font-size: var(--fs-small);
+	margin-bottom: 1rem;
+}
+.teamRules__section__info .teamRules__p:last-child {
+	margin-bottom: 0;
+}
+
+/* Basic section */

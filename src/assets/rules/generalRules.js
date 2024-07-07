@@ -15,6 +15,11 @@ export const generalRules = {
 		points: 1,
 		colorVariant: "warning",
 	},
+	// the user hit the winner of the match
+	goalDifference: {
+		points: 1,
+		colorVariant: "warning",
+	},
 	// the user hit the exact result of the match
 	exactResult: {
 		points: 3,

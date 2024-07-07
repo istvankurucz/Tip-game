@@ -53,7 +53,7 @@ function CreateTeamModal({ show, setShow }) {
 			setShow(false);
 
 			// Navigate to the team's page
-			navigate(`/teams/${team.id}`);
+			navigate(`/teams/${team.id}/ranking`);
 		} catch (e) {
 			console.log("Error creating the team in DB.", e);
 

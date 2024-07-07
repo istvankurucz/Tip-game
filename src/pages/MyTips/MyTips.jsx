@@ -22,7 +22,7 @@ function MyTips() {
 	const [showMatchInfo, setShowMatchInfo] = useState(false);
 	const [matchInfo, setMatchInfo] = useState(null);
 	const { matches, loading } = useMatches();
-	// console.log(matches);
+	// console.log("Matches:", matches);
 
 	const upcomingMatches = getUpcomingMatches(matches);
 	const previousMatches = getPreviousMatches(matches);
