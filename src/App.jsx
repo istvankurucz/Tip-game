@@ -8,9 +8,9 @@ import Feedback from "./components/ui/Feedback/Feedback";
 import Tournaments from "./pages/Tournaments/Tournaments";
 import MyTips from "./pages/MyTips/MyTips";
 import MyTeams from "./pages/MyTeams/MyTeams";
+import TeamProvider from "./contexts/TeamContext";
 import Team from "./pages/Team/Team";
 import "./App.css";
-import TeamProvider from "./contexts/TeamContext";
 
 function App() {
 	// Hook to handle authentication

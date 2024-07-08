@@ -28,3 +28,24 @@
 .teamSidebar__menu__item--active {
 	color: var(--accent-color);
 }
+
+@media screen and (max-width: 576px) {
+	.teamSidebar {
+		width: 100%;
+		border-top: 0.1rem solid var(--secondary-color);
+		border-bottom: 0.1rem solid var(--secondary-color);
+		padding-inline: 1rem;
+		margin-bottom: 2rem;
+		position: static;
+	}
+
+	.teamSidebar__menu {
+		display: flex;
+		gap: 1.5rem;
+		/* justify-content: space-between; */
+	}
+
+	.teamSidebar__menu__item:not(:last-child) {
+		margin-bottom: 0;
+	}
+}

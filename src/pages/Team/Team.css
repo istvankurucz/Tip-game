@@ -6,5 +6,17 @@
 .team__main {
 	border-left: 0.1rem solid hsl(var(--accent-color-values) / 0.3);
 	padding-left: 3rem;
+	padding-right: 1rem;
 	padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 576px) {
+	.team__body {
+		flex-wrap: wrap;
+	}
+
+	.team__main {
+		border-left: none;
+		padding-left: 1rem;
+	}
 }

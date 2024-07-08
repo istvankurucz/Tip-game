@@ -1,0 +1,7 @@
+.teamSection {
+	padding: 0;
+	margin-bottom: 3rem;
+}
+.teamSection:last-child {
+	margin-bottom: 0;
+}

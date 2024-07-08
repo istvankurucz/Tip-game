@@ -1,27 +1,29 @@
-/* General styles */
-.teamSettings__section {
-	padding: 0;
-	margin-bottom: 3rem;
-}
-.teamSettings__section:last-child {
-	margin-bottom: 0;
-}
-
-.teamSettings__p {
-	margin-bottom: 1rem;
-}
-
-/* Join code section */
-.teamSettings__code {
-	display: flex;
-	gap: 2rem;
-	align-items: center;
-	margin-top: 1rem;
-}
-
-/* Admin section */
-.teamSettings__admin {
+.teamSettings__flex {
 	display: flex;
 	gap: 2rem;
 	align-items: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+	.teamSettings__admin {
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		justify-content: center;
+	}
+
+	.teamSettings__admin__select {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.teamSettings__code {
+		gap: 0.5rem;
+		justify-content: space-between;
+	}
+
+	.teamSettings__delete {
+		display: flex;
+		margin-inline: auto;
+	}
 }

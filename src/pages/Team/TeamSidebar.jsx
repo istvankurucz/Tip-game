@@ -27,17 +27,6 @@ function TeamSidebar() {
 									: ""
 							}`}
 						>
-							<Link to="./matches">Matches</Link>
-						</li>
-					)}
-					{isAdmin && (
-						<li
-							className={`teamSidebar__menu__item${
-								location.pathname.includes("rules")
-									? " teamSidebar__menu__item--active"
-									: ""
-							}`}
-						>
 							<Link to="./rules">Rules</Link>
 						</li>
 					)}

@@ -38,7 +38,11 @@ function MyTips() {
 		};
 
 		// Remove goals that didn't count
-		match.info.goals = match.info.goals.filter((goal) => goal.goalGetterID !== 0);
+		match.info.goals = match.info.goals.filter(
+			(goal) =>
+				goal.goalGetterID !== 0 &&
+				(goal.matchMinute <= 90 || (goal.matchMinute > 90 && goal.isOvertime))
+		);
 
 		setMatchInfo(match.info);
 		setShowMatchInfo(true);

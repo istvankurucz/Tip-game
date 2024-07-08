@@ -7,6 +7,8 @@ import Container from "../../components/layout/Container/Container";
 import TeamRules from "./TeamRules";
 import { useTeamContext } from "../../contexts/TeamContext";
 import TeamSettings from "./TeamSettings";
+import TeamSection from "../../components/layout/Section/TeamSection/TeamSection";
+import TeamP from "../../components/ui/P/TeamP/TeamP";
 
 function Team() {
 	const { team, loading } = useTeamContext();
@@ -31,6 +33,8 @@ function Team() {
 	);
 }
 
+Team.Section = TeamSection;
+Team.P = TeamP;
 Team.Sidebar = TeamSidebar;
 Team.Ranking = TeamRanking;
 Team.Rules = TeamRules;

@@ -1,11 +1,7 @@
 /* General styles */
-.teamRules__section {
+.teamRules__section__flex {
 	display: flex;
 	gap: 3rem;
-	margin-bottom: 3rem;
-}
-.teamRules__section:last-child {
-	margin-bottom: 0;
 }
 
 .teamRules__section__inputs {
@@ -32,14 +28,21 @@
 	text-align: center;
 }
 
-.teamRules__p {
-	font-size: var(--fs-small);
-	margin-bottom: 1rem;
-}
-.teamRules__section__info .teamRules__p:last-child {
+.teamRules__section__info p:last-child {
 	margin-bottom: 0;
 }
 
 .teamRules__save {
 	margin-top: -1rem;
+}
+
+@media screen and (max-width: 768px) {
+	.teamRules__section__flex {
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+
+	.teamRules__section__flex .teamRules__row:last-child {
+		margin-bottom: 0;
+	}
 }
