@@ -11,6 +11,7 @@ import useUserTeams from "../../hooks/useUserTeams";
 import Subtitle from "../../components/ui/Subtitle/Subtitle";
 import Table from "../../components/layout/Table/Table";
 import JoinTeamModal from "./JoinTeamModal";
+import setSortParams from "../../utils/general/setSortParams";
 
 function MyTeams() {
 	const { teams, loading } = useUserTeams();
@@ -24,14 +25,6 @@ function MyTeams() {
 	const sortedTeams = sortTeams(teams, sort.property, sort.asc);
 
 	const hasUserTeams = teams.length !== 0;
-
-	// Function to update the params of the sorting
-	function setSortParams(newProperty) {
-		setSort((prev) => {
-			if (prev.property === newProperty) return { property: newProperty, asc: !prev.asc };
-			else return { property: newProperty, asc: true };
-		});
-	}
 
 	// Function to perform the sorting on teams array
 	function sortTeams(teams, property, asc = true) {
@@ -107,11 +100,11 @@ function MyTeams() {
 							<Table sortable className="myTeams__table myTeams__table--teams">
 								<thead>
 									<tr>
-										<th onClick={() => setSortParams("name")}>
+										<th onClick={() => setSortParams("name", setSort)}>
 											Team name
 											<FontAwesomeIcon icon={faSort} className="th__sortIcon" />
 										</th>
-										<th onClick={() => setSortParams("members")}>
+										<th onClick={() => setSortParams("members", setSort)}>
 											Members
 											<FontAwesomeIcon icon={faSort} className="th__sortIcon" />
 										</th>

@@ -89,18 +89,6 @@ function Header() {
 														<FontAwesomeIcon icon={faUsers} /> My teams
 													</Link>
 												</li>
-												<li className="header__submenu__item">
-													<Link to="/">Team 1</Link>
-												</li>
-												<li className="header__submenu__item">
-													<Link to="/">Team 2</Link>
-												</li>
-												<li className="header__submenu__item">
-													<Link to="/">Team 3</Link>
-												</li>
-												<li className="header__submenu__item">
-													<Link to="/">and X more</Link>
-												</li>
 
 												<hr className="header__submenu__divider" />
 											</>

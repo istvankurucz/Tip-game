@@ -1,21 +1,9 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 import { useEffect, useState } from "react";
 import useActiveTournament from "./useActiveTournament";
-import { axios } from "../config/axios";
-import getMatchData from "../utils/match/getMatchData";
 import { useStateValue } from "../contexts/context API/StateProvider";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../config/firebase";
-
-// Function to decide if the stored tip is valid
-function getTipFromDbData(tip) {
-	// If there is no tip for this match
-	if (tip == undefined) return null;
-	// If the user didn't filled the inputs for goals
-	if (isNaN(tip.data().team1Score) || isNaN(tip.data().team2Score)) return null;
-	// Ok
-	return { team1Score: tip.data().team1Score, team2Score: tip.data().team2Score };
-}
+import fetchMatches from "../utils/match/fetchMatches";
+import fetchUserTips from "../utils/user/fetchUserTips";
+import pairMatchesWithTips from "../utils/match/pairMatchesWithTips";
 
 function useMatches() {
 	const [{ user }] = useStateValue();
@@ -24,35 +12,20 @@ function useMatches() {
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-		async function fetchMacthes() {
+		async function fetchMacthesWithUserTips() {
 			setLoading(true);
 			try {
-				// Get the macthes from the API
-				const { data } = await axios.get(
-					`/getmatchdata/${tournament.shortcut}/${tournament.season}`
-				);
+				// Get the matches from the API
+				const matchData = await fetchMatches(tournament);
 
-				const matchData = data.map((match) => getMatchData(match));
+				// Get the tips of the user from DB
+				const tips = await fetchUserTips(user.uid, user.activeTournament);
 
-				// Get the tips from the DB
-				const userTipsRef = collection(
-					db,
-					`users/${user.uid}/tournaments/${user.activeTournament}/matches`
-				);
-				const tips = (await getDocs(userTipsRef)).docs;
-				// console.log("Tips:", tips);
+				// Pair the matches with the tips of the user
+				const matchesWithTips = pairMatchesWithTips(matchData, tips);
 
-				const matchesWithTips = matchData.map((match) => {
-					const matchTip = tips.find((tip) => parseInt(match.id) === parseInt(tip.id));
-
-					return {
-						...match,
-						tip: getTipFromDbData(matchTip),
-					};
-				});
-
-				setLoading(false);
 				setMatches(matchesWithTips);
+				setLoading(false);
 			} catch (e) {
 				console.log("Error fetching the matches.", e);
 				setLoading(false);
@@ -61,7 +34,7 @@ function useMatches() {
 
 		if (!tournament || !user) return;
 
-		fetchMacthes();
+		fetchMacthesWithUserTips();
 	}, [tournament, user]);
 
 	return { matches, loading };

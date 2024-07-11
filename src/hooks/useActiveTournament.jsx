@@ -4,7 +4,8 @@ import { useStateValue } from "../contexts/context API/StateProvider";
 function useActiveTournament() {
 	const [{ user }] = useStateValue();
 
-	return tournaments.get(user?.activeTournament);
+	if (user == null) return null;
+	return tournaments.get(user.activeTournament);
 }
 
 export default useActiveTournament;
